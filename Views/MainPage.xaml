@@ -8,7 +8,7 @@
              Shell.TabBarBackgroundColor="Black"
              Shell.TabBarTitleColor="Yellow"
              Shell.TabBarUnselectedColor="White">
-             <!--="MainPage"-->
+    <!--Title="MainPage>"-->
     <Shell.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="White" StatusBarStyle="DarkContent" />
     </Shell.Behaviors>

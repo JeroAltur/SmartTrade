@@ -1,6 +1,6 @@
-namespace SmartTrade;
+namespace SmartTrade.Views;
 
-public partial class MainPage : ContentPage
+public partial class MainPage : Shell
 {
 	public MainPage()
 	{
