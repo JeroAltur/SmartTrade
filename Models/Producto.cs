@@ -8,6 +8,9 @@ namespace SmartTrade.Models
 {
     internal class Producto
     {
-        public Producto() { }
-    }
+        public Producto() 
+        {
+         
+        }
+    }   
 }

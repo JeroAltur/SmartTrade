@@ -24,5 +24,7 @@ namespace SmartTrade.Models
             }
             return nuevoProducto;
         }
+
+        public FabricaProducto() { }
     }
 }
