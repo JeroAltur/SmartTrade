@@ -8,7 +8,7 @@ using System.Web;
 
 namespace SmartTrade
 {
-	public static class Conexion
+	public class Conexion
 	{
 		private MySqlConnection conexion;
 		private string server = "bezz64pmlgkdtkejch0i-mysql.services.clever-cloud.com";
@@ -18,12 +18,12 @@ namespace SmartTrade
 		private string port = "3306";
 		private string cadenaConexion;
 
-		public static Conexion()
+		public Conexion()
 		{
 			cadenaConexion = "Server=" + server + "; Port=" + port + "; Database" + database + "; Uid=" + user + "; Pwd=" + password;
 		}
 
-		public static MySqlConnection getConexion()
+		public MySqlConnection getConexion()
 		{
 			if (conexion == null)
 			{
