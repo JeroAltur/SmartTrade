@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui;
+using Microsoft.Extensions.Logging;
 using SmartTrade;
 using SmartTrade.ViewModels;
 using SmartTrade.Views;
@@ -15,6 +16,8 @@ namespace SmartTrade
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+
+                .UseMauiCommunityToolkit()
 
                 .ConfigureFonts(fonts =>
                 {
