@@ -1,12 +1,120 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="SmartTrade.Views.PaginaPrincipal"
              Title="PaginaPrincipal">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding ListarAnunciosCommand}" EventName="Appearing" />
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <toolkit:ItemTappedEventArgsConverter x:Key="ItemTappedEventsArgsConverter"/>
+    </ContentPage.Resources>
+
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+        <!-- Barra de búsqueda fija en la parte superior -->
+        <SearchBar Placeholder="Buscar..."
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Start"
+                   Margin="10" />
+        
+        <!--Hay que añadir la del icono del carrito -->
+        
+        
+        
+
+        <ScrollView VerticalOptions="FillAndExpand">
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Sección de Tendencias -->
+                <Label Text="Tendencias" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <HorizontalStackLayout>
+                    <!-- Grid donde deberían ir los productos -->
+
+
+                    <CollectionView ItemsSource="{Binding TrendingProducts}"
+                                ItemsLayout="HorizontalList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" WidthRequest="200">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="{Binding Image}" Aspect="AspectFill" HeightRequest="100"/>
+                                    <Label Grid.Row="1" Text="{Binding Name}" LineBreakMode="NoWrap" FontSize="Medium"/>
+                                    <Label Grid.Row="2" Text="{Binding Price}" TextColor="Gray" FontSize="Small"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+                    <!-- fin-->
+                    
+                    
+                </HorizontalStackLayout>
+
+                <!-- Sección de Mejor Valorados -->
+                <Label Text="Mejor Valorados" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <HorizontalStackLayout>
+                    <!-- Grid donde deberían ir los productos -->
+
+                    <CollectionView ItemsSource="{Binding TrendingProducts}"
+                                ItemsLayout="HorizontalList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" WidthRequest="200">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="{Binding Image}" Aspect="AspectFill" HeightRequest="100"/>
+                                    <Label Grid.Row="1" Text="{Binding Name}" LineBreakMode="NoWrap" FontSize="Medium"/>
+                                    <Label Grid.Row="2" Text="{Binding Price}" TextColor="Gray" FontSize="Small"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+
+
+                    <!---Fin-->
+                </HorizontalStackLayout>
+
+
+                <!-- Comprados por IronMan -->
+                <Label Text="Comprados por IronMan" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <HorizontalStackLayout>
+                    <!-- Grid donde deberían ir los productos -->
+                    <CollectionView ItemsSource="{Binding TrendingProducts}"
+                                ItemsLayout="HorizontalList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10" WidthRequest="200">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="{Binding Image}" Aspect="AspectFill" HeightRequest="100"/>
+                                    <Label Grid.Row="1" Text="{Binding Name}" LineBreakMode="NoWrap" FontSize="Medium"/>
+                                    <Label Grid.Row="2" Text="{Binding Price}" TextColor="Gray" FontSize="Small"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+                    <!---Fin-->
+                </HorizontalStackLayout>
+
+
+            </VerticalStackLayout>
+        </ScrollView>
     </VerticalStackLayout>
 </ContentPage>

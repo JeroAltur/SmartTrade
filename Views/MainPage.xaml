@@ -14,7 +14,19 @@
     </Shell.Behaviors>
     <TabBar>
         <!--Aquí para la pestaña en la que trabajeis cambiad la ruta del DataTemplate, así cargará la página, y poned un icono-->
-        <ShellContent 
+        <ShellContent Icon="casa"
                       ContentTemplate="{DataTemplate views:PaginaPrincipal}"/>
+
+        <ShellContent Icon="persona"
+                      ContentTemplate="{DataTemplate views:PaginaPerfil}"/>
+
+        <ShellContent Icon="corazon"
+              ContentTemplate="{DataTemplate views:PaginaListaDeDeseos}"/>
+    
+        <ShellContent Icon="rayas"
+              ContentTemplate="{DataTemplate views:AgregarProducto}"/>
+
+        
+
     </TabBar>
 </Shell>
