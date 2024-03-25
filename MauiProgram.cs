@@ -29,11 +29,17 @@ namespace SmartTrade
 
             //Add ViewModels
             builder.Services.AddSingleton<PaginaPrincipalViewModel>();
+            builder.Services.AddSingleton<AgregarProductoViewModel>();
+            builder.Services.AddSingleton<PaginaListaDeDeseosViewModel>();
+            builder.Services.AddSingleton<PaginaPerfilViewModel>();
+
 
 
             //AddViews
             builder.Services.AddSingleton<PaginaPrincipal>();
-
+            builder.Services.AddSingleton<AgregarProducto>();
+            builder.Services.AddSingleton<PaginaListaDeDeseos>();
+            builder.Services.AddSingleton<PaginaPerfil>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
