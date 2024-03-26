@@ -8,9 +8,21 @@ namespace SmartTrade.Models
 {
     internal class Producto
     {
-        public Producto() 
+        string nombre;
+        string descripcion;
+        double precio;
+
+        public Producto()
         {
-         
+
         }
-    }   
+
+        public Producto(string name, string dscription,double price)
+        {
+            this.nombre = name;
+            this.descripcion = dscription;
+            this.precio = price;
+        }
+    }
+    
 }
