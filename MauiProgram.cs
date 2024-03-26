@@ -32,6 +32,7 @@ namespace SmartTrade
             builder.Services.AddSingleton<AgregarProductoViewModel>();
             builder.Services.AddSingleton<PaginaListaDeDeseosViewModel>();
             builder.Services.AddSingleton<PaginaPerfilViewModel>();
+            builder.Services.AddSingleton<PaginaBuscadorViewModel>();
 
 
 
@@ -40,6 +41,7 @@ namespace SmartTrade
             builder.Services.AddSingleton<AgregarProducto>();
             builder.Services.AddSingleton<PaginaListaDeDeseos>();
             builder.Services.AddSingleton<PaginaPerfil>();
+            builder.Services.AddSingleton<PaginaBuscador>();
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
