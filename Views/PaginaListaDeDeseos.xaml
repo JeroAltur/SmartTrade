@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="SmartTrade.Views.PaginaListaDeDeseos"
              Title="PaginaListaDeDeseos">
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding ListarDeseosCommand}" EventName="Appearing" />
+    </ContentPage.Behaviors>
+    <ContentPage.Resources>
+        <toolkit:ItemTappedEventArgsConverter x:Key="ItemTappedEventsArgsConverter"/>
+    </ContentPage.Resources>
+
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <!-- Barra de búsqueda fija en la parte superior -->
+        <SearchBar Placeholder="Buscar..."
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="Start"
+                   Margin="10" />
+
+        <!--Hay que añadir la del icono del carrito -->
+
+        <ScrollView>
+            <Grid x:Name="MainGrid"  RowSpacing="6" ColumnSpacing="6"  Margin="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
+                </Frame>
+                <Frame BackgroundColor ="#70C5A6" HeightRequest="150" Padding="0" Grid.Column="1">
+                </Frame>
+
+                <!-- Las filas se añadirán dinámicamente en el código -->
+            </Grid>
+
+
+
+        </ScrollView>
+
+
+
+
+
     </VerticalStackLayout>
+
 </ContentPage>

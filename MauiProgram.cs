@@ -40,6 +40,7 @@ namespace SmartTrade
             builder.Services.AddSingleton<AgregarProducto>();
             builder.Services.AddSingleton<PaginaListaDeDeseos>();
             builder.Services.AddSingleton<PaginaPerfil>();
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
