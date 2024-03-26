@@ -8,6 +8,13 @@ namespace SmartTrade.Models
 {
     internal class Ropa : Producto
     {
+
         public Ropa() { }
+        public Ropa(Producto p) 
+        {
+            this.nombre = p.nombre;
+            this.descripcion = p.descripcion;
+            this.precio = p.precio;
+        }
     }
 }

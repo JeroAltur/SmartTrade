@@ -9,5 +9,11 @@ namespace SmartTrade.Models
     internal class Electronica : Producto
     {
         public Electronica() { }
+        public Electronica(Producto p) 
+        {
+            this.nombre = p.nombre;
+            this.descripcion = p.descripcion;
+            this.precio = p.precio;
+        }
     }
 }

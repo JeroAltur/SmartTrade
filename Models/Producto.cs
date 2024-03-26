@@ -8,9 +8,9 @@ namespace SmartTrade.Models
 {
     internal class Producto
     {
-        string nombre;
-        string descripcion;
-        double precio;
+        public string nombre {  get; set; }
+        public string descripcion {  get; set; }
+        public double precio {  get; set; }
 
         public Producto()
         {
@@ -23,6 +23,7 @@ namespace SmartTrade.Models
             this.descripcion = dscription;
             this.precio = price;
         }
+
     }
     
 }
