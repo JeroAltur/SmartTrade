@@ -18,100 +18,18 @@
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="Start"
                    Margin="10" />
-        
+
         <!--Hay que añadir la del icono del carrito -->
-        
-        
-        
 
-        <ScrollView VerticalOptions="FillAndExpand">
-            <VerticalStackLayout Spacing="0">
 
-                <!-- Sección de Tendencias -->
+
+
+        <ScrollView >
+            <VerticalStackLayout Margin="20" Spacing="12">
                 <Label Text="Tendencias" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
-                <HorizontalStackLayout>
-                    <!-- Grid donde deberían ir los productos -->
+                <Label Text=""/>
 
 
-                    <CollectionView ItemsSource="{Binding TrendingProducts}"
-                                ItemsLayout="HorizontalList">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Padding="10" WidthRequest="200">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Grid.Row="0" Source="{Binding Image}" Aspect="AspectFill" HeightRequest="100"/>
-                                    <Label Grid.Row="1" Text="{Binding Name}" LineBreakMode="NoWrap" FontSize="Medium"/>
-                                    <Label Grid.Row="2" Text="{Binding Price}" TextColor="Gray" FontSize="Small"/>
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-
-
-                    <!-- fin-->
-                    
-                    
-                </HorizontalStackLayout>
-
-                <!-- Sección de Mejor Valorados -->
-                <Label Text="Mejor Valorados" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
-                <HorizontalStackLayout>
-                    <!-- Grid donde deberían ir los productos -->
-
-                    <CollectionView ItemsSource="{Binding TrendingProducts}"
-                                ItemsLayout="HorizontalList">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Padding="10" WidthRequest="200">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Grid.Row="0" Source="{Binding Image}" Aspect="AspectFill" HeightRequest="100"/>
-                                    <Label Grid.Row="1" Text="{Binding Name}" LineBreakMode="NoWrap" FontSize="Medium"/>
-                                    <Label Grid.Row="2" Text="{Binding Price}" TextColor="Gray" FontSize="Small"/>
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-
-
-
-
-                    <!---Fin-->
-                </HorizontalStackLayout>
-
-
-                <!-- Comprados por IronMan -->
-                <Label Text="Comprados por IronMan" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
-                <HorizontalStackLayout>
-                    <!-- Grid donde deberían ir los productos -->
-                    <CollectionView ItemsSource="{Binding TrendingProducts}"
-                                ItemsLayout="HorizontalList">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Padding="10" WidthRequest="200">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Image Grid.Row="0" Source="{Binding Image}" Aspect="AspectFill" HeightRequest="100"/>
-                                    <Label Grid.Row="1" Text="{Binding Name}" LineBreakMode="NoWrap" FontSize="Medium"/>
-                                    <Label Grid.Row="2" Text="{Binding Price}" TextColor="Gray" FontSize="Small"/>
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-
-
-                    <!---Fin-->
-                </HorizontalStackLayout>
 
 
             </VerticalStackLayout>
