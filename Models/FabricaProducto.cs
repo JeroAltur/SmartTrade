@@ -9,18 +9,18 @@ namespace SmartTrade.Models
 {
     internal class FabricaProducto
     {
-        public Producto crearProducto(string tipo) {
+        public Producto crearProducto(string tipo, Producto p) {
             Producto nuevoProducto = null;
             if (tipo == "ropa")
             {
-                nuevoProducto = new Ropa();
+                nuevoProducto = new Ropa(p);
             }
             else if (tipo == "comida")
             {
-                nuevoProducto = new Comida();
+                nuevoProducto = new Comida(p);
             }
             else if (tipo == "electronica") { 
-                nuevoProducto = new Electronica();
+                nuevoProducto = new Electronica(p);
             }
             return nuevoProducto;
         }
