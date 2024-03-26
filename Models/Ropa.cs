@@ -16,6 +16,8 @@ namespace SmartTrade.Models
             this.descripcion = p.descripcion;
             this.precio = p.precio;
             this.imagenes = p.imagenes;
+            this.certificados = p.certificados;
+            this.ficha = p.ficha;
         }
     }
 }
