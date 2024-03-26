@@ -15,11 +15,11 @@ namespace SmartTrade.Models
             {
                 nuevoProducto = new Ropa(p);
             }
-            else if (tipo == "comida")
+            if (tipo == "comida")
             {
                 nuevoProducto = new Comida(p);
             }
-            else if (tipo == "electronica") { 
+            if (tipo == "electronica") { 
                 nuevoProducto = new Electronica(p);
             }
             return nuevoProducto;
