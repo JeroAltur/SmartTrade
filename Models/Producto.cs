@@ -14,12 +14,11 @@ namespace SmartTrade.Models
         public List<string> imagenes { get; set; }
         public List<string> certificados { get; set; }
         public string ficha {  get; set; }
+        public Valoracion valor {  get; set; }
 
+        public int ventas {  get; set; }
 
-        public Producto()
-        {
-
-        }
+        public Producto() { }
 
         public Producto(string name, string dscription,double price, List<string> imagenes, List<string> certificados, string ficha)
         {
@@ -29,6 +28,12 @@ namespace SmartTrade.Models
             this.imagenes = imagenes;
             this.certificados = certificados;
             this.ficha = ficha;
+            this.valor = new Valoracion();
+        }
+
+        public void venta()
+        {
+            this.ventas++;
         }
 
     }
