@@ -18,12 +18,31 @@
 
         <ScrollView >
             <VerticalStackLayout Margin="30" Spacing="12">
-                <!-- Nombre del equipo -->
+                <!-- Nombre del producto -->
                 <Label Text="Título del producto" FontSize="22" FontAttributes="Bold" HorizontalOptions="Start"/>
-                <Entry Placeholder="Ingresa el nombre del equipo" Text="{Binding Nombre}" />
+                <Frame>
+                    <Entry Placeholder="Ingresa el nombre de tu producto" Text="{Binding Nombre}" />
+                </Frame>
 
+                <!-- Descripción del producto -->
+                <Label Text="Título del producto" FontSize="22" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Frame>
+                    <Entry Placeholder="Introduce una descripción del producto" Text="{Binding Descripcion}" />
+                </Frame>
 
+                <!--Ficha técnica y especificaciones -->
+                <Label Text="Ficha técnica y especificaciones" FontSize="22" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Button Text="Adjuntar archivos" Command="{Binding AdjuntarFichaTecnicaCommand}" BackgroundColor="Black" CornerRadius="20" MaximumWidthRequest="90" />
 
+                <!--Certificados ambientales y de calidad -->
+                <Label Text="Certificados ambientales y de calidad" FontSize="22" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Button Text="Adjuntar archivos" Command="{Binding AdjuntarCertificadosAmbientalesCommand}" BackgroundColor="Black" CornerRadius="20" MaximumWidthRequest="90" />
+
+                <!--Imágenes y vídeos del producto -->
+                <Label Text="Imágenes y vídeos del product" FontSize="22" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Button Text="Adjuntar archivos" Command="{Binding AdjuntarImagenesCommand}" BackgroundColor="Black" CornerRadius="20" MaximumWidthRequest="90" />
+
+            
             </VerticalStackLayout>
         </ScrollView>
     </VerticalStackLayout>
