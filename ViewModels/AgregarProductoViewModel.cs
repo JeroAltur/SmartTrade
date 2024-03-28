@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using System.Collections.ObjectModel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -91,15 +93,15 @@ namespace SmartTrade.ViewModels
         public AgregarProductoViewModel()
         {
             // Inicialización del comando
-            GuardarProductoCommand = new Command(() => GuardarProducto());
+            
         }
 
-        private void GuardarProducto()
+        [RelayCommand]
+        public async Task CrearProducto()
         {
-            // Aquí iría la lógica para guardar el producto en la base de datos
-            // Por ejemplo: ProductService.AgregarProducto(new Producto { Nombre = this.NombreProducto, Descripcion = this.Descripcion, Precio = this.Precio });
-        }
 
+
+        }
 
 
 
