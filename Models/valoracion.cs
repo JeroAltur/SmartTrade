@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contacts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,21 @@ namespace SmartTrade.Models
         public void valoracionNueva(int v)
         {
             this.valoraciones.Add(v);
+            valoracionProducto(valoraciones);
         }
 
         public void valoracionProducto(List<double> valoraciones)
         {
+            double valorProvisional = 0, contador = 0;
+            foreach (var v in valoraciones)
+            {
+                valorProvisional += v;
+                contador++;
+            }
 
+            valorProvisional = valorProvisional / contador;
+
+            this.valor = valorProvisional;
         }
 
     }
