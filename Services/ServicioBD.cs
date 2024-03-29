@@ -40,5 +40,10 @@ namespace SmartTrade.Services
         {
             return _conexion.Table<T>().ToList();
         }
+
+        public void Create<T>() where T : class
+        {
+            _conexion.CreateTable<T>();
+        }
     }
 }
