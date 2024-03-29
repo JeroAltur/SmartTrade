@@ -3,32 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using SQLite;
 using SmartTrade.Models;
+using System.Linq.Expressions;
 
 namespace SmartTrade.Services
 {
     internal class ServicioBD
     {
-        readonly SQLiteAsyncConnection _conexion;
+        private readonly SQLiteConnection _conexion;
 
         public ServicioBD(string rutaBaseDatos)
         {
-            _conexion = new SQLiteAsyncConnection(rutaBaseDatos);
-            _conexion.CreateTableAsync<Producto>().Wait(); // Crea la tabla si no existe
+            this._conexion = new SQLiteConnection(rutaBaseDatos);
         }
 
-        // Insertar un objeto en la base de datos
-        public async Task<int> InsertarAsync(Producto modelo)
+        public void Insert<T>(T entity) where T : class
         {
-            return await _conexion.InsertAsync(modelo);
+            _conexion.Insert(entity);
+            _conexion.Commit();
         }
 
-        // Obtener todos los objetos de la base de datos
-        public async Task<List<Producto>> ObtenerTodosAsync()
+        public void Delete<T>(T entity) where T : class
         {
-            return await _conexion.Table<Producto>().ToListAsync();
+            _conexion.Delete(entity);
+            _conexion.Commit();
         }
 
+        public void Clear<T>() where T : class
+        {
+            _conexion.DeleteAll<T>();
+        }
+
+        public List<T> GetAll<T>() where T : new()
+        {
+            return _conexion.Table<T>().ToList();
+        }
     }
 }
