@@ -11,6 +11,11 @@ namespace SmartTrade.Services
     {
         private readonly BD bd;
 
+        public SmartTradeServices(ServicioBD servicio)
+        {
+            this.bd = servicio;
+        }
+
         public List<Producto> Tendencias()
         {
             return bd.GetAllOrdered<Producto, int>("ventas").Take(10).ToList();

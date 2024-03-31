@@ -7,6 +7,7 @@ using System.Data;
 using SQLite;
 using SmartTrade.Models;
 using System.Linq.Expressions;
+using MySql.Data.MySqlClient;
 
 namespace SmartTrade.Services
 {
@@ -14,9 +15,9 @@ namespace SmartTrade.Services
     {
         private readonly SQLiteConnection _conexion;
 
-        public ServicioBD(string rutaBaseDatos)
+        public ServicioBD(SQLiteConnection conexion)
         {
-            this._conexion = new SQLiteConnection(rutaBaseDatos);
+            this._conexion = conexion;
         }
 
         public void Insert<T>(T entity) where T : class

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 using SmartTrade;
+using SmartTrade.Services;
 using SmartTrade.ViewModels;
 using SmartTrade.Views;
 
@@ -13,6 +14,9 @@ namespace SmartTrade
     {
         public static MauiApp CreateMauiApp()
         {
+            var conexion = new Conexion();
+            SmartTradeServices service = new SmartTradeServices(new ServicioBD(conexion.GetConexion()));
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
