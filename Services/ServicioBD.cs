@@ -10,7 +10,7 @@ using System.Linq.Expressions;
 
 namespace SmartTrade.Services
 {
-    internal class ServicioBD
+    internal class ServicioBD: BD
     {
         private readonly SQLiteConnection _conexion;
 
@@ -44,6 +44,11 @@ namespace SmartTrade.Services
         public void Create<T>() where T : class
         {
             _conexion.CreateTable<T>();
+        }
+
+        public List<T> GetAllOrdered<T, U>(string orderByColumn) where T : new()
+        {
+            return _conexion.Table<T>().OrderBy<T, U>(x => (U)x.GetType().GetProperty(orderByColumn).GetValue(x)).ToList();
         }
     }
 }
