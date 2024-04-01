@@ -18,13 +18,53 @@ namespace SmartTrade.Services
 
         public List<Producto> Tendencias()
         {
-            return bd.GetAllOrdered<Producto, int>("ventas").Take(10).ToList();
+            List<Comida> comida = bd.GetAllOrdered<Comida, int>("ventas").Take(10).ToList();
+            List<Electronica> electronica = bd.GetAllOrdered<Electronica, int>("ventas").Take(10).ToList();
+            List<Ropa> ropa = bd.GetAllOrdered<Ropa, int>("ventas").Take(10).ToList();
+            List<Producto> result = new List<Producto>();
+
+            foreach (Comida p in comida)
+            {
+                result.Add(p);
+            }
+            foreach (Electronica p in electronica)
+            {
+                result.Add(p);
+            }
+            foreach (Ropa p in ropa)
+            {
+                result.Add(p);
+            }
+
+            result = result.OrderBy(p => p.ventas).Take(10).ToList();
+
+            return result;
         }
 
         //importante revisar, puede q no funcione bien, ya que hay q comprobar si esta bien pasado el argumento
         public List<Producto> MejorValorado()
         {
-            return bd.GetAllOrdered<Producto, double>("valor").Take(10).ToList();
+            List<Comida> comida = bd.GetAllOrdered<Comida, double>("valor").Take(10).ToList();
+            List<Electronica> electronica = bd.GetAllOrdered<Electronica, double>("valor").Take(10).ToList();
+            List<Ropa> ropa = bd.GetAllOrdered<Ropa, double>("valor").Take(10).ToList();
+            List<Producto> result = new List<Producto>();
+
+            foreach (Comida p in comida)
+            {
+                result.Add(p);
+            }
+            foreach (Electronica p in electronica)
+            {
+                result.Add(p);
+            }
+            foreach (Ropa p in ropa)
+            {
+                result.Add(p);
+            }
+
+            result = result.OrderBy(p => p.valor).Take(10).ToList();
+
+            return result;
         }
     }
 }
