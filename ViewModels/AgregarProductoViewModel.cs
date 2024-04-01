@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using CommunityToolkit.Mvvm.Input;
 using SmartTrade.Views;
 
 
 namespace SmartTrade.ViewModels
 {
-    internal class AgregarProductoViewModel
+    internal partial class AgregarProductoViewModel
     {
 
 
