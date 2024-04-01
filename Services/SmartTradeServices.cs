@@ -41,7 +41,6 @@ namespace SmartTrade.Services
             return result;
         }
 
-        //importante revisar, puede q no funcione bien, ya que hay q comprobar si esta bien pasado el argumento
         public List<Producto> MejorValorado()
         {
             List<Comida> comida = bd.GetAllOrdered<Comida, double>("valor").Take(10).ToList();
