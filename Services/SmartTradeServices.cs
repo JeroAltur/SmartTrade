@@ -75,7 +75,7 @@ namespace SmartTrade.Services
             bd.Insert(p);
         }
 
-        public void AgregarProducto2(Producto p, string tipo)
+        public void AgregarProductoDirecto(Producto p, string tipo)
         {
             Producto product = new Producto();
             FabricaProducto fabricaProducto = new FabricaProducto();
@@ -100,62 +100,62 @@ namespace SmartTrade.Services
             Producto p1 = new Producto("teclado", "teclado con pad numerico", 20, null, null, null);
             Valoracion v1 = new Valoracion();
             v1.valoracionNueva(5); v1.valoracionNueva(4);
-            AgregarProducto2(p1, "electronica");
+            AgregarProductoDirecto(p1, "electronica");
 
             Producto p2 = new Producto("Redmi15", "movil xiaomi de ultima generacion ", 300, null, null, null);
             Valoracion v2 = new Valoracion();
             v2.valoracionNueva(5); v2.valoracionNueva(4);
-            AgregarProducto2(p2, "electronica");
+            AgregarProductoDirecto(p2, "electronica");
 
             Producto p3 = new Producto("Manzana roja", "Manzana roja cultivada en España", 20, null, null, null);
             Valoracion v3 = new Valoracion();
             v3.valoracionNueva(5); v3.valoracionNueva(5);
-            AgregarProducto2(p3, "comida");
+            AgregarProductoDirecto(p3, "comida");
 
             Producto p4 = new Producto("Sudadera supreme", "sudadera de alta calidad", 20, null, null, null);
             Valoracion v4 = new Valoracion();
             v4.valoracionNueva(3); v4.valoracionNueva(4);
-            AgregarProducto2(p4, "ropa");
+            AgregarProductoDirecto(p4, "ropa");
 
             Producto p5 = new Producto("Redmi15Pro", "Redmi15 con mejoras en el rendimiento y almacenamiento", 20, null, null, null);
             Valoracion v5 = new Valoracion();
             v5.valoracionNueva(5); v5.valoracionNueva(5);
-            AgregarProducto2(p5, "electronica");
+            AgregarProductoDirecto(p5, "electronica");
 
             Producto p6 = new Producto("Redmi14", "movil xiaomi de alta calidad", 275, null, null, null);
             Valoracion v6 = new Valoracion();
             v6.valoracionNueva(4); v6.valoracionNueva(4);
-            AgregarProducto2(p6, "electronica");
+            AgregarProductoDirecto(p6, "electronica");
 
             Producto p7 = new Producto("Redmi13", "movil xiaomi de alta calidad", 250, null, null, null);
             Valoracion v7 = new Valoracion();
             v7.valoracionNueva(4); v7.valoracionNueva(4);
-            AgregarProducto2(p7, "electronica");
+            AgregarProductoDirecto(p7, "electronica");
 
             Producto p8 = new Producto("Redmi12", "movil xiaomi de alta calidad", 225, null, null, null);
             Valoracion v8 = new Valoracion(p8);
             v8.valoracionNueva(4); v8.valoracionNueva(4);
-            AgregarProducto2(p8, "electronica");
+            AgregarProductoDirecto(p8, "electronica");
 
             Producto p9 = new Producto("Redmi11", "movil xiaomi de alta calidad", 200, null, null, null);
             Valoracion v9 = new Valoracion(p9);
             v9.valoracionNueva(4); v9.valoracionNueva(3);
-            AgregarProducto2(p9, "electronica");
+            AgregarProductoDirecto(p9, "electronica");
 
             Producto p10 = new Producto("Redmi10", "movil xiaomi de alta calidad", 150, null, null, null);
             Valoracion v10 = new Valoracion(p10);
             v10.valoracionNueva(3); v10.valoracionNueva(3);
-            AgregarProducto2(p10, "electronica");
+            AgregarProductoDirecto(p10, "electronica");
 
             Producto p11 = new Producto("Redmi9", "movil xiaomi de alta calidad", 100, null, null, null);
             Valoracion v11 = new Valoracion(p11);
             v11.valoracionNueva(3); v11.valoracionNueva(2);
-            AgregarProducto2(p11, "electronica");
+            AgregarProductoDirecto(p11, "electronica");
 
             Producto p12 = new Producto("Iphone15", "Movil Iphone con cargador incluido", 999.99, null, null, null);
             Valoracion v12 = new Valoracion(p12);
             v12.valoracionNueva(5); v12.valoracionNueva(4);
-            AgregarProducto2(p12, "electronica");
+            AgregarProductoDirecto(p12, "electronica");
         }
     }
 }

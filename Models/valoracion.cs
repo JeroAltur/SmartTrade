@@ -20,7 +20,7 @@ namespace SmartTrade.Models
         public Valoracion(Producto p)
         {
             this.p = p;
-            p.valoracion(this);
+            //p.Valoracion(this);
         }
 
 
