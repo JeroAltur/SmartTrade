@@ -14,6 +14,7 @@ namespace SmartTrade.Services
         public List<T> GetAll<T>() where T : new();
         public void Create<T>() where T : class;
         public List<T> GetAllOrdered<T, U>(string orderByColumn) where T : new();
+        public void RemoveAllData();
 
     }
 }

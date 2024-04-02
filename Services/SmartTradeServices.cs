@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SmartTrade.Models;
+using SmartTrade.Views;
 
 namespace SmartTrade.Services
 {
@@ -64,6 +65,27 @@ namespace SmartTrade.Services
             result = result.OrderBy(p => p.valor).Take(10).ToList();
 
             return result;
+        }
+
+        public void AgregarProducto(string name, string dscription, double price, List<string> imagenes, List<string> certificados, string ficha, string tipo)
+        {
+            Producto p = new Producto(name, dscription,price, imagenes, certificados, ficha);
+            FabricaProducto fabricaProducto = new FabricaProducto();
+            p = fabricaProducto.crearProducto(tipo, p);
+            bd.Insert(p);
+        }
+
+        public void IniciarBD()
+        {
+            bd.RemoveAllData();
+            AgregarProducto("teclado", "teclado con pad numerico", 20, null, null, null, "electronica");
+            AgregarProducto("Redmi15", "movil xiaomi de ultima generacion ", 300, null, null, null, "electronica");
+            AgregarProducto("Manzana roja", "Manzana roja cultivada en España", 20, null, null, null, "comida");
+            AgregarProducto("Sudadera supreme", "sudadera de alta calidad", 20, null, null, null, "ropa");
+            AgregarProducto("Redmi15Pro", "Redmi15 con mejoras en el rendimiento y almacenamiento", 20, null, null, null, "electronica");
+            AgregarProducto("Redmi14", "movil xiaomi de alta calidad", 300, null, null, null, "electronica");
+            AgregarProducto("Redmi13", "movil xiaomi de alta calidad", 300, null, null, null, "electronica");
+            AgregarProducto("Redmi12", "movil xiaomi de alta calidad", 300, null, null, null, "electronica");
         }
     }
 }

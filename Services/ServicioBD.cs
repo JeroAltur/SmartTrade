@@ -35,6 +35,7 @@ namespace SmartTrade.Services
         public void Clear<T>() where T : class
         {
             _conexion.DeleteAll<T>();
+            _conexion.Commit();
         }
 
         public List<T> GetAll<T>() where T : new()
@@ -45,11 +46,20 @@ namespace SmartTrade.Services
         public void Create<T>() where T : class
         {
             _conexion.CreateTable<T>();
+            _conexion.Commit();
         }
 
         public List<T> GetAllOrdered<T, U>(string orderByColumn) where T : new()
         {
             return _conexion.Table<T>().OrderBy<T, U>(x => (U)x.GetType().GetProperty(orderByColumn).GetValue(x)).ToList();
+        }
+
+        public void RemoveAllData()
+        {
+            Clear<Producto>();
+            Clear<Comida>();
+            Clear<Ropa>();
+            Clear<Electronica>();
         }
     }
 }

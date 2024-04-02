@@ -17,6 +17,9 @@ namespace SmartTrade
             var conexion = new Conexion();
             SmartTradeServices service = new SmartTradeServices(new ServicioBD(conexion.GetConexion()));
 
+            //Recordar borrar esto en cierto punto, ya que borra los datos i crea nuevos
+            service.IniciarBD();
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
