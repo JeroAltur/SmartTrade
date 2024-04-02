@@ -17,6 +17,12 @@ namespace SmartTrade.Models
             this.valor = 0;
         }
 
+        public Valoracion(Producto p)
+        {
+            this.p = p;
+            p.valoracion(this);
+        }
+
 
         public void valoracionNueva(int v)
         {

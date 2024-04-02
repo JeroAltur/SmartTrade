@@ -36,6 +36,11 @@ namespace SmartTrade.Models
             this.ventas++;
         }
 
+        public void valoracion(Valoracion v) 
+        {
+            this.valor = v;
+        }
+
     }
     
 }
