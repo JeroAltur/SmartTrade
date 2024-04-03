@@ -82,9 +82,8 @@ namespace SmartTrade.Services
             while (reader.Read())
             {
                 // Mapea los datos del lector al objeto T 
-                // Implementa la lógica según tus necesidades 
                 var item = new T();
-                // ... 
+                
                 result.Add(item);
             }
             return result;
