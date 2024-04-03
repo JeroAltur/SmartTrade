@@ -12,22 +12,22 @@ namespace SmartTrade.Models
         public string descripcion {  get; set; }
         public double precio {  get; set; }
         public List<string> imagenes { get; set; }
-        public List<string> certificados { get; set; }
-        public string ficha {  get; set; }
+        public List<string> certificadosMedioambientales { get; set; }
+        public string fichaTecnica {  get; set; }
         public Valoracion valor {  get; set; }
 
         public int ventas {  get; set; }
 
         public Producto() { }
 
-        public Producto(string name, string dscription,double price, List<string> imagenes, List<string> certificados, string ficha)
+        public Producto(string nombre, string descripcion,double precio, List<string> imagenes, List<string> certificadosMedioambientales, string fichaTecnica)
         {
-            this.nombre = name;
-            this.descripcion = dscription;
-            this.precio = price;
+            this.nombre = nombre;
+            this.descripcion = descripcion;
+            this.precio = precio;
             this.imagenes = imagenes;
-            this.certificados = certificados;
-            this.ficha = ficha;
+            this.certificadosMedioambientales = certificadosMedioambientales;
+            this.fichaTecnica = fichaTecnica;
             this.valor = new Valoracion();
         }
 

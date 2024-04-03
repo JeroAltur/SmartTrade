@@ -67,9 +67,9 @@ namespace SmartTrade.Services
             return result;
         }
 
-        public void AgregarProducto(string name, string dscription, double price, List<string> imagenes, List<string> certificados, string ficha, string tipo)
+        public void AgregarProducto(string name, string description, double price, List<string> imagenes, List<string> certificados, string ficha, string tipo)
         {
-            Producto p = new Producto(name, dscription,price, imagenes, certificados, ficha);
+            Producto p = new Producto(name, description,price, imagenes, certificados, ficha);
             FabricaProducto fabricaProducto = new FabricaProducto();
             p = fabricaProducto.crearProducto(tipo, p);
             bd.Insert(p);
