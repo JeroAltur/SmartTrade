@@ -19,9 +19,9 @@ namespace SmartTrade.Services
 
         public List<Producto> Tendencias()
         {
-            List<Comida> comida = bd.GetAllOrdered<Comida, int>("ventas").Take(10).ToList();
-            List<Electronica> electronica = bd.GetAllOrdered<Electronica, int>("ventas").Take(10).ToList();
-            List<Ropa> ropa = bd.GetAllOrdered<Ropa, int>("ventas").Take(10).ToList();
+            List<Comida> comida = bd.TodoOrdenado<Comida, int>("ventas").Take(10).ToList();
+            List<Electronica> electronica = bd.TodoOrdenado<Electronica, int>("ventas").Take(10).ToList();
+            List<Ropa> ropa = bd.TodoOrdenado<Ropa, int>("ventas").Take(10).ToList();
             List<Producto> result = new List<Producto>();
 
             foreach (Comida p in comida)
@@ -44,9 +44,9 @@ namespace SmartTrade.Services
 
         public List<Producto> MejorValorado()
         {
-            List<Comida> comida = bd.GetAllOrdered<Comida, double>("valor").Take(10).ToList();
-            List<Electronica> electronica = bd.GetAllOrdered<Electronica, double>("valor").Take(10).ToList();
-            List<Ropa> ropa = bd.GetAllOrdered<Ropa, double>("valor").Take(10).ToList();
+            List<Comida> comida = bd.TodoOrdenado<Comida, double>("valor").Take(10).ToList();
+            List<Electronica> electronica = bd.TodoOrdenado<Electronica, double>("valor").Take(10).ToList();
+            List<Ropa> ropa = bd.TodoOrdenado<Ropa, double>("valor").Take(10).ToList();
             List<Producto> result = new List<Producto>();
 
             foreach (Comida p in comida)
@@ -72,7 +72,7 @@ namespace SmartTrade.Services
             Producto p = new Producto(name, description,price, imagenes, certificados, ficha);
             FabricaProducto fabricaProducto = new FabricaProducto();
             p = fabricaProducto.crearProducto(tipo, p);
-            bd.Insert(p);
+            bd.Insertar(p);
         }
 
         public void AgregarProductoDirecto(Producto p, string tipo)
@@ -80,7 +80,7 @@ namespace SmartTrade.Services
             Producto product = new Producto();
             FabricaProducto fabricaProducto = new FabricaProducto();
             p = fabricaProducto.crearProducto(tipo, p);
-            bd.Insert(p);
+            bd.Insertar(p);
         }
 
         public void AñadirListaDeseos(ListaDeseos ld, Producto p)
@@ -95,7 +95,7 @@ namespace SmartTrade.Services
 
         public void IniciarBD()
         {
-            bd.RemoveAllData();
+            bd.BorrarTodo();
 
             Producto p1 = new Producto("teclado", "teclado con pad numerico", 20, null, null, null);
             Valoracion v1 = new Valoracion();

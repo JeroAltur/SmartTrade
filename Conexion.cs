@@ -1,16 +1,12 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
+﻿using System;
+using System.Data;
+using MySql.Data.MySqlClient; 
 
 namespace SmartTrade
 {
-	public class Conexion
-	{
-        private SQLiteConnection conexion;
+    public class Conexion
+    {
+        private MySqlConnection conexion;
         private string server = "bezz64pmlgkdtkejch0i-mysql.services.clever-cloud.com";
         private string database = "bezz64pmlgkdtkejch0i";
         private string user = "uxri6to3ohabhczv";
@@ -23,11 +19,12 @@ namespace SmartTrade
             cadenaConexion = $"Server={server}; Port={port}; Database={database}; Uid={user}; Pwd={password}";
         }
 
-        public SQLiteConnection GetConexion()
+        public MySqlConnection GetConexion()
         {
             if (conexion == null)
             {
-                conexion = new SQLiteConnection(cadenaConexion);
+                conexion = new MySqlConnection(cadenaConexion);
+                conexion.Open();
             }
             return conexion;
         }

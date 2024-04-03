@@ -1,65 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using SQLite;
-using SmartTrade.Models;
-using System.Linq.Expressions;
 using MySql.Data.MySqlClient;
+using SmartTrade.Models;
 
 namespace SmartTrade.Services
 {
     internal class ServicioBD: BD
     {
-        private readonly SQLiteConnection _conexion;
+        private readonly MySqlConnection _conexion;
 
-        public ServicioBD(SQLiteConnection conexion)
+        public ServicioBD(MySqlConnection conexion)
         {
-            this._conexion = conexion;
+            _conexion = conexion;
+            _conexion.Open();
         }
 
-        public void Insert<T>(T entity) where T : class
+        public void Insertar<T>(T entity) where T : class
         {
-            _conexion.Insert(entity);
-            _conexion.Commit();
+            var tableName = typeof(T).Name;
+            var query = $"INSERT INTO {tableName} (...) VALUES (...)";
+            ExecuteNonQuery(query);
         }
 
-        public void Delete<T>(T entity) where T : class
+        public void Borrar<T>(T entity) where T : class
         {
-            _conexion.Delete(entity);
-            _conexion.Commit();
+            var tableName = typeof(T).Name;
+            var query = $"DELETE FROM {tableName} WHERE ...";
+            ExecuteNonQuery(query);
         }
 
-        public void Clear<T>() where T : class
+        public void Limpiar<T>() where T : class
         {
-            _conexion.DeleteAll<T>();
-            _conexion.Commit();
+            var tableName = typeof(T).Name;
+            var query = $"DELETE FROM {tableName}";
+            ExecuteNonQuery(query);
         }
 
-        public List<T> GetAll<T>() where T : new()
+        public List<T> Todo<T>() where T : new()
         {
-            return _conexion.Table<T>().ToList();
+            var query = $"SELECT * FROM {typeof(T).Name}";
+            return ExecuteQuery<T>(query);
         }
 
-        public void Create<T>() where T : class
+        public void Crear<T>() where T : class
         {
-            _conexion.CreateTable<T>();
-            _conexion.Commit();
+            var query = $"CREATE TABLE IF NOT EXISTS {typeof(T).Name} (...)";
+            ExecuteNonQuery(query);
         }
 
-        public List<T> GetAllOrdered<T, U>(string orderByColumn) where T : new()
+        public List<T> TodoOrdenado<T, U>(string orderByColumn) where T : new()
         {
-            return _conexion.Table<T>().OrderBy<T, U>(x => (U)x.GetType().GetProperty(orderByColumn).GetValue(x)).ToList();
+            var query = $"SELECT * FROM {typeof(T).Name} ORDER BY {orderByColumn}";
+            return ExecuteQuery<T>(query);
         }
 
-        public void RemoveAllData()
+        public void BorrarTodo()
         {
-            Clear<Producto>();
-            Clear<Comida>();
-            Clear<Ropa>();
-            Clear<Electronica>();
+            Limpiar<Producto>();
+            Limpiar<Comida>();
+            Limpiar<Ropa>();
+            Limpiar<Electronica>();
+        }
+
+        public void Cerrar()
+        {
+            _conexion.Close();
+        }
+
+        private void ExecuteNonQuery(string query)
+        {
+            using var cmd = new MySqlCommand(query, _conexion);
+            cmd.ExecuteNonQuery();
+        }
+
+        private List<T> ExecuteQuery<T>(string query) where T : new()
+        {
+            var result = new List<T>();
+            using var cmd = new MySqlCommand(query, _conexion);
+            using var reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                // Mapea los datos del lector al objeto T 
+                // Implementa la lógica según tus necesidades 
+                var item = new T();
+                // ... 
+                result.Add(item);
+            }
+            return result;
         }
     }
 }
