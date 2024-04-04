@@ -44,9 +44,9 @@ namespace SmartTrade.Services
 
         public List<Producto> MejorValorado()
         {
-            List<Comida> comida = bd.TodoOrdenado<Comida, double>("valor.valor").Take(10).ToList();
-            List<Electronica> electronica = bd.TodoOrdenado<Electronica, double>("valor.valor").Take(10).ToList();
-            List<Ropa> ropa = bd.TodoOrdenado<Ropa, double>("valor.valor").Take(10).ToList();
+            List<Comida> comida = bd.TodoOrdenado<Comida, double>("valor").Take(10).ToList();
+            List<Electronica> electronica = bd.TodoOrdenado<Electronica, double>("valor").Take(10).ToList();
+            List<Ropa> ropa = bd.TodoOrdenado<Ropa, double>("valor").Take(10).ToList();
             List<Producto> result = new List<Producto>();
 
             foreach (Comida p in comida)
