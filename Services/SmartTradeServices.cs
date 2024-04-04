@@ -67,6 +67,38 @@ namespace SmartTrade.Services
             return result;
         }
 
+        public List<Producto> Buscador(String valor)
+        {
+            List<Comida> comida = bd.Todo<Comida>().ToList();
+            List<Electronica> electronica = bd.Todo<Electronica>().ToList();
+            List<Ropa> ropa = bd.Todo<Ropa>().ToList();
+            List<Producto> resultadoProvicional = new List<Producto>();
+            List<Producto> result = new List<Producto>();
+
+            foreach (Comida p in comida)
+            {
+                resultadoProvicional.Add(p);
+            }
+            foreach (Electronica p in electronica)
+            {
+                resultadoProvicional.Add(p);
+            }
+            foreach (Ropa p in ropa)
+            {
+                resultadoProvicional.Add(p);
+            }
+
+            foreach(Producto p in resultadoProvicional)
+            {
+                if(p.nombre.Contains(valor) || p.descripcion.Contains(valor))
+                { 
+                    result.Add(p);
+                }
+            }
+
+            return result;
+        }
+
         public void AgregarProducto(string name, string description, double price, List<string> imagenes, List<string> certificados, string ficha, string tipo)
         {
             Producto p = new Producto(name, description,price, imagenes, certificados, ficha);
