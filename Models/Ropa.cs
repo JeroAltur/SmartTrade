@@ -18,6 +18,9 @@ namespace SmartTrade.Models
             this.imagenes = p.imagenes;
             this.certificadosMedioambientales = p.certificadosMedioambientales;
             this.fichaTecnica = p.fichaTecnica;
+            this.valoraciones = p.valoraciones;
+            this.valor = p.valor;
+            this.ventas = p.ventas;
         }
     }
 }
