@@ -18,9 +18,14 @@ namespace SmartTrade.Models
 
         public int ventas {  get; set; }
 
-        public Producto() { }
+        public Producto() 
+        {
+            imagenes = new List<string>();
+            certificadosMedioambientales = new List<string>();
+            valor = new Valoracion(this);
+        }
 
-        public Producto(string nombre, string descripcion,double precio, List<string> imagenes, List<string> certificadosMedioambientales, string fichaTecnica)
+        public Producto(string nombre, string descripcion,double precio, List<string> imagenes, List<string> certificadosMedioambientales, string fichaTecnica): this()
         {
             this.nombre = nombre;
             this.descripcion = descripcion;
@@ -28,7 +33,6 @@ namespace SmartTrade.Models
             this.imagenes = imagenes;
             this.certificadosMedioambientales = certificadosMedioambientales;
             this.fichaTecnica = fichaTecnica;
-            this.valor = new Valoracion();
         }
 
         public void venta()

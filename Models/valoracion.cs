@@ -15,16 +15,16 @@ namespace SmartTrade.Models
         public Valoracion() 
         {
             this.valor = 0;
+            this.valoraciones = new List<double>();
         }
 
-        public Valoracion(Producto p)
+        public Valoracion(Producto p) : this()
         {
             this.p = p;
-            //p.Valoracion(this);
         }
 
 
-        public void valoracionNueva(int v)
+        public void valoracionNueva(double v)
         {
             this.valoraciones.Add(v);
             valoracionProducto(valoraciones);

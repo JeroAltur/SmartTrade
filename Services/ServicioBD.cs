@@ -13,21 +13,34 @@ namespace SmartTrade.Services
         public ServicioBD(MySqlConnection conexion)
         {
             _conexion = conexion;
-            _conexion.Open();
         }
 
         public void Insertar<T>(T entity) where T : class
         {
             var tableName = typeof(T).Name;
-            var query = $"INSERT INTO {tableName} (...) VALUES (...)";
-            ExecuteNonQuery(query);
+            var properties = typeof(T).GetProperties();
+            var columnNames = string.Join(", ", properties.Select(p => p.Name));
+            var valuePlaceholders = string.Join(", ", properties.Select(p => $"@{p.Name}"));
+
+            var query = $"INSERT INTO {tableName} ({columnNames}) VALUES ({valuePlaceholders})";
+            ExecuteNonQuery(query, entity);
         }
 
         public void Borrar<T>(T entity) where T : class
         {
             var tableName = typeof(T).Name;
-            var query = $"DELETE FROM {tableName} WHERE ...";
-            ExecuteNonQuery(query);
+            var primaryKey = "Id"; // Cambia esto al nombre de tu clave primaria
+            var primaryKeyValue = entity.GetType().GetProperty(primaryKey)?.GetValue(entity);
+
+            if (primaryKeyValue != null)
+            {
+                var query = $"DELETE FROM {tableName} WHERE {primaryKey} = @PrimaryKeyValue";
+                ExecuteNonQuery(query, new { PrimaryKeyValue = primaryKeyValue });
+            }
+            else
+            {
+                System.Console.WriteLine("no hay clave primaria");
+            }
         }
 
         public void Limpiar<T>() where T : class
@@ -87,6 +100,21 @@ namespace SmartTrade.Services
                 result.Add(item);
             }
             return result;
+        }
+
+        private void ExecuteNonQuery(string query, object parameters = null)
+        {
+            using var command = new MySqlCommand(query, _conexion);
+
+            if (parameters != null)
+            {
+                foreach (var property in parameters.GetType().GetProperties())
+                {
+                    command.Parameters.AddWithValue($"@{property.Name}", property.GetValue(parameters));
+                }
+            }
+
+            command.ExecuteNonQuery();
         }
     }
 }
