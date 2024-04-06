@@ -16,7 +16,7 @@ namespace SmartTrade
 
         public Conexion()
         {
-            cadenaConexion = "Server=bezz64pmlgkdtkejch0i-mysql.services.clever-cloud.com;Database=bezz64pmlgkdtkejch0i;User Id=uxri6to3ohabhczv;Password=Vfg8AwmWlxQB3TrLuJoF";
+            cadenaConexion = $"Server={server};Database={database};User Id={user};Password={password}";
         }
 
         public MySqlConnection GetConexion()
