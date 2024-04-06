@@ -11,7 +11,7 @@
         <toolkit:ItemTappedEventArgsConverter x:Key="ItemTappedEventsArgsConverter"/>
     </ContentPage.Resources>
 
-    <VerticalStackLayout>
+    <AbsoluteLayout>
         <!-- Barra de búsqueda fija en la parte superior -->
         <SearchBar Placeholder="Buscar..."
                    HorizontalOptions="FillAndExpand"
@@ -21,18 +21,38 @@
         <!--Hay que añadir la del icono del carrito -->
 
         <ScrollView>
-            <Grid x:Name="MainGrid"  RowSpacing="6" ColumnSpacing="6"  Margin="20,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
-                </Frame>
-                <Frame BackgroundColor ="#70C5A6" HeightRequest="150" Padding="0" Grid.Column="1">
-                </Frame>
+            <ListView x:Name="ListaDeseados"  CachingStrategy="RecycleElement" ItemsSource="{Binding Deseados}"  >
+                <ListView.Behaviors>
+                    <toolkit:EventToCommandBehavior Command="{Binding AbrirProductoCommand}" EventName="ItemTapped" EventArgsConverter="{StaticResource ItemTappedEventsArgsConverter}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="#70C5A6"  HeightRequest="150" Padding="0">
+                                <Grid x:Name="MainGrid"  RowSpacing="6" ColumnSpacing="6"  Margin="20,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                               
 
-                <!-- Las filas se añadirán dinámicamente en el código -->
-            </Grid>
+                                
+                            </Grid>
+                            </Frame>
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+
+
+
+
+
+
+
+            </ListView>
 
 
 
@@ -42,6 +62,6 @@
 
 
 
-    </VerticalStackLayout>
+    </AbsoluteLayout>
 
 </ContentPage>
