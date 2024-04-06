@@ -16,7 +16,7 @@ namespace SmartTrade
 
         public Conexion()
         {
-            cadenaConexion = $"Server={server}; Port={port}; Database={database}; Uid={user}; Pwd={password}";
+            cadenaConexion = "Server=bezz64pmlgkdtkejch0i-mysql.services.clever-cloud.com;Database=bezz64pmlgkdtkejch0i;User Id=uxri6to3ohabhczv;Password=Vfg8AwmWlxQB3TrLuJoF";
         }
 
         public MySqlConnection GetConexion()
@@ -24,7 +24,13 @@ namespace SmartTrade
             if (conexion == null)
             {
                 conexion = new MySqlConnection(cadenaConexion);
-                conexion.Open();
+                try
+                {
+                    conexion.Open();
+                }
+                catch (MySqlException e){
+                    Console.WriteLine(e.Message);
+                }
             }
             return conexion;
         }
