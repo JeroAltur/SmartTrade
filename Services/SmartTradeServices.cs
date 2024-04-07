@@ -54,6 +54,19 @@ namespace SmartTrade.Services
         
         }
 
+        public List<Producto> ObtenerTendencias()
+        {
+            
+            return bd.TodoOrdenado<Producto, int>("ventas").Take(10).ToList();
+        }
+
+        public List<Producto> ObtenerMejorValorados()
+        {
+            return bd.TodoOrdenado<Producto, double>("valor").Take(10).ToList();
+        }
+
+
+
         public List<Producto> MejorValorado()
         {
             List<Comida> comida = bd.TodoOrdenado<Comida, double>("valor").Take(10).ToList();

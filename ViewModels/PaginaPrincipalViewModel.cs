@@ -11,7 +11,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace SmartTrade.ViewModels
 {
-    internal class PaginaPrincipalViewModel : ObservableObject
+    internal partial class PaginaPrincipalViewModel : ObservableObject
     {
         private readonly SmartTradeServices _dataService;
 
@@ -56,7 +56,7 @@ namespace SmartTrade.ViewModels
             }
 
         }
-
+/*
         [RelayCommand]
         public async Task ListarCompradosPorIronMan()
         {
@@ -67,7 +67,7 @@ namespace SmartTrade.ViewModels
             }
 
         }
-
+*/
 
     }
 }
