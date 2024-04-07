@@ -42,6 +42,18 @@ namespace SmartTrade.Services
             return result;
         }
 
+        public List<Producto> ObtenerListaDeseos()
+        {
+
+            var todosLosProductos = bd.Todo<Producto>();
+            var ProductosDeseados = new List<Producto>();
+
+            return ProductosDeseados;
+        
+        
+        
+        }
+
         public List<Producto> MejorValorado()
         {
             List<Comida> comida = bd.TodoOrdenado<Comida, double>("valor").Take(10).ToList();
@@ -98,6 +110,11 @@ namespace SmartTrade.Services
 
             return result;
         }
+
+      
+
+
+
 
         public void AgregarProducto(string name, string description, double price, List<string> imagenes, List<string> certificados, string ficha, string tipo)
         {

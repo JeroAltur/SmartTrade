@@ -19,49 +19,32 @@
                    Margin="10" />
 
         <!--Hay que añadir la del icono del carrito -->
+        <CollectionView ItemsSource="{Binding Deseados}"
+                        AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All"
+                        Margin="10,60,10,10">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0" Margin="5">
 
-        <ScrollView>
-            <ListView x:Name="ListaDeseados"  CachingStrategy="RecycleElement" ItemsSource="{Binding Deseados}"  >
-                <ListView.Behaviors>
-                    <toolkit:EventToCommandBehavior Command="{Binding AbrirProductoCommand}" EventName="ItemTapped" EventArgsConverter="{StaticResource ItemTappedEventsArgsConverter}" />
-                </ListView.Behaviors>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame BackgroundColor="#70C5A6"  HeightRequest="150" Padding="0">
-                                <Grid x:Name="MainGrid"  RowSpacing="6" ColumnSpacing="6"  Margin="20,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                               
+                        <Grid RowSpacing="6" ColumnSpacing="6">
+                            <!-- Foto del producto-->
+                            <Image Source="{Binding RutaImagen}" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" />
+                            
+                            <!-- Nombre del producto-->
+                            <Label Text="{Binding NombreProducto}" Grid.Column="0" Grid.Row="1" VerticalOptions="End" HorizontalOptions="Center"/>
 
-                                
-                            </Grid>
-                            </Frame>
-
-
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+                
+            </CollectionView.ItemTemplate>
 
 
 
-
-
-
-
-
-            </ListView>
-
-
-
-        </ScrollView>
-
-
-
-
-
+        </CollectionView>
     </AbsoluteLayout>
 
 </ContentPage>
