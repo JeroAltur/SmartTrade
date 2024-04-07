@@ -12,6 +12,9 @@ using SmartTrade.Views;
 using SmartTrade.Services;
 using SmartTrade.Models;
 using Org.BouncyCastle.Bcpg.OpenPgp;
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.Storage;
+
 
 namespace SmartTrade.ViewModels
 {
@@ -114,6 +117,12 @@ namespace SmartTrade.ViewModels
             }
         }
 
+
+
+
+
+
+
         // Comando para guardar el producto
         public ICommand GuardarProductoCommand { protected set; get; }
 
@@ -137,6 +146,73 @@ namespace SmartTrade.ViewModels
 
 
         }
+
+        [RelayCommand]
+        public async Task SeleccionarYSubirFicha()
+        {
+            var resultado = await FilePicker.PickAsync(new PickOptions
+            {
+                PickerTitle = "Selecciona la ficha técnica",
+                // Ajusta los tipos de archivos según tus necesidades
+                FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+                {
+                    { DevicePlatform.iOS, new[] { "public.item" } },
+                    { DevicePlatform.Android, new[] { "*/*" } },
+                })
+            });
+
+            if (resultado != null)
+            {
+                using var stream = await resultado.OpenReadAsync();
+                Ficha = resultado.FileName; // Aquí puedes manejar el archivo como necesites
+            }
+        }
+
+        [RelayCommand]
+        public async Task SeleccionarYSubirCertificados()
+        {
+            var resultados = await FilePicker.PickMultipleAsync(new PickOptions
+            {
+                PickerTitle = "Selecciona los certificados",
+                // Ajusta los tipos de archivos según tus necesidades
+                FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+                {
+                    { DevicePlatform.iOS, new[] { "public.item" } },
+                    { DevicePlatform.Android, new[] { "*/*" } },
+                })
+            });
+
+            Certificado = new List<string>();
+            foreach (var resultado in resultados)
+            {
+                using var stream = await resultado.OpenReadAsync();
+                Certificado.Add(resultado.FileName); // Aquí puedes manejar el archivo como necesites
+            }
+        }
+
+        [RelayCommand]
+        public async Task SeleccionarYSubirImagen()
+        {
+            var resultado = await FilePicker.PickAsync(new PickOptions
+            {
+                PickerTitle = "Selecciona una imagen",
+                FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+                {
+                    { DevicePlatform.iOS, new[] { "public.image" } },
+                    { DevicePlatform.Android, new[] { "image/*" } },
+                })
+            });
+
+            if (resultado != null)
+            {
+                using var stream = await resultado.OpenReadAsync();
+                Imagen = new List<string> { resultado.FileName }; // Aquí puedes manejar el archivo como necesites
+            }
+        }
+
+
+
+
 
         private void LimpiarFormulario()
         {

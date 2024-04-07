@@ -28,7 +28,7 @@
             <VerticalStackLayout Margin="20" Spacing="12">
                 <Label Text="Tendencias" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
                 <Frame  BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
-                    <CollectionView ItemsSource ="{Binding Tendencias}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ScrollOrientation="Horizontal">
+                    <CollectionView ItemsSource ="{Binding Tendencias}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FlowDirection="LeftToRight">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="10">
@@ -46,7 +46,7 @@
 
                 <Label Text="Mejor valorados " FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
                 <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
-                    <CollectionView ItemsSource="{Binding MejorValorados}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ScrollOrientation="Horizontal">
+                    <CollectionView ItemsSource="{Binding MejorValorados}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FlowDirection="LeftToRight">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="10">
@@ -64,7 +64,7 @@
                 
                 <Label Text="Comprados por IronMan" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
                 <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
-                    <CollectionView ItemsSource="{Binding CompradosPorIronMan}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  ScrollOrientation="Horizontal">
+                    <CollectionView ItemsSource="{Binding CompradosPorIronMan}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  FlowDirection="LeftToRight">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="10">
