@@ -28,28 +28,56 @@
             <VerticalStackLayout Margin="20" Spacing="12">
                 <Label Text="Tendencias" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
                 <Frame  BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
-                    <Grid x:Name="tendenciasGrid"
-                          RowDefinitions="Auto, Auto"> <!--Dos filas , en la primera hay que poner la foto del producto y en la segunda el nombre -->
-                        <!-- Las Columnas se van añadiendo de forma dinámica en función del número de productos que tengamos en tendencias -->
-                    </Grid>
-
+                    <CollectionView ItemsSource ="{Binding Tendencias}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ScrollOrientation="Horizontal">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding RutaImagen}" Aspect="AspectFill"/>
+                                    <Label Text="{Binding NombreProducto}" Grid.Row="1" HorizontalOptions="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </Frame>
 
                 <Label Text="Mejor valorados " FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
                 <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
-                    <Grid x:Name="mejorValoradosGrid"
-                          RowDefinitions="Auto, Auto">
-                        <!--Dos filas , en la primera hay que poner la foto del producto y en la segunda el nombre -->
-                        <!-- Las Columnas se van añadiendo de forma dinámica en función del número de productos que tengamos en Mejor Valorados -->
-                    </Grid>
+                    <CollectionView ItemsSource="{Binding MejorValorados}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" ScrollOrientation="Horizontal">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding RutaImagen}" Aspect="AspectFill"/>
+                                    <Label Text="{Binding NombreProducto}" Grid.Row="1" HorizontalOptions="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </Frame>
+                
                 <Label Text="Comprados por IronMan" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
                 <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
-                    <Grid x:Name="compradosPorIronManGrid"
-                          RowDefinitions="Auto, Auto">
-                        <!--Dos filas , en la primera hay que poner la foto del producto y en la segunda el nombre -->
-                        <!-- Las Columnas se van añadiendo de forma dinámica en función del número de productos que tengamos en comprados por IronMan -->
-                    </Grid>
+                    <CollectionView ItemsSource="{Binding CompradosPorIronMan}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  ScrollOrientation="Horizontal">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding RutaImagen}" Aspect="AspectFill"/>
+                                    <Label Text="{Binding NombreProducto}" Grid.Row="1" HorizontalOptions="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
 
                 </Frame>
 
