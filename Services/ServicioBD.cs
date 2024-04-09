@@ -56,15 +56,6 @@ namespace SmartTrade.Services
             return ExecuteQuery<T>(query);
         }
 
-        public void Crear<T>() where T : class
-        {
-            var tableName = typeof(T).Name;
-            var properties = typeof(T).GetProperties();
-            var columnDefinitions = string.Join(", ", properties.Select(p => $"{p.Name} {GetSqlType(p.PropertyType)}"));
-            var query = $"CREATE TABLE IF NOT EXISTS {tableName} ({columnDefinitions})";
-            ExecuteNonQuery(query);
-        }
-
         public List<T> TodoOrdenado<T, U>(string orderByColumn) where T : new()
         {
             var query = $"SELECT * FROM {typeof(T).Name} ORDER BY {orderByColumn}";
@@ -73,11 +64,26 @@ namespace SmartTrade.Services
 
         public void BorrarTodo()
         {
-            Limpiar<Producto>();
-            Limpiar<Comida>();
-            Limpiar<Ropa>();
-            Limpiar<Electronica>();
-            Limpiar<Valoracion>();
+            try
+            {
+                // Desactivar las restricciones de clave externa
+                ExecuteNonQuery("SET FOREIGN_KEY_CHECKS = 0");
+
+                // Borrar los datos de todas las tablas
+                Limpiar<Producto>();
+                Limpiar<Comida>();
+                Limpiar<Ropa>();
+                Limpiar<Electronica>();
+                Limpiar<Valoracion>();
+
+                // Volver a activar las restricciones de clave externa
+                ExecuteNonQuery("SET FOREIGN_KEY_CHECKS = 1");
+            }
+            catch (Exception ex)
+            {
+                // Manejar la excepción aquí
+                Console.WriteLine("Error al borrar todos los datos: " + ex.Message);
+            }
         }
 
         public void Cerrar()
@@ -127,10 +133,39 @@ namespace SmartTrade.Services
             var properties = typeof(T).GetProperties();
             foreach (var property in properties)
             {
-                if (!reader.IsDBNull(reader.GetOrdinal(property.Name)))
+                var ordinal = reader.GetOrdinal(property.Name);
+                if (!reader.IsDBNull(ordinal))
                 {
-                    var value = reader[property.Name];
-                    property.SetValue(entity, value);
+                    var value = reader.GetValue(ordinal);
+                    if (value != DBNull.Value)
+                    {
+                        if (property.PropertyType.IsEnum)
+                        {
+                            // Manejar propiedad enum
+                            property.SetValue(entity, Enum.ToObject(property.PropertyType, value));
+                        }
+                        else if (property.PropertyType == typeof(double))
+                        {
+                            // Convertir el valor a double si es necesario
+                            if (value is float floatValue)
+                            {
+                                property.SetValue(entity, (double)floatValue);
+                            }
+                            else if (value is decimal decimalValue)
+                            {
+                                property.SetValue(entity, (double)decimalValue);
+                            }
+                            else
+                            {
+                                property.SetValue(entity, Convert.ToDouble(value));
+                            }
+                        }
+                        else
+                        {
+                            // Asignar el valor a la propiedad
+                            property.SetValue(entity, value);
+                        }
+                    }
                 }
             }
         }
@@ -148,5 +183,76 @@ namespace SmartTrade.Services
             else
                 throw new NotSupportedException($"El tipo {type.Name} no es compatible con SQL.");
         }
+
+        public T BuscarPorIdProducto<T>(int id) where T : new()
+        {
+            var tableName = typeof(T).Name;
+            var primaryKey = "idProducto"; // Cambia esto al nombre de tu clave primaria
+            var query = $"SELECT * FROM {tableName} WHERE {primaryKey} = @Id";
+
+            using var cmd = new MySqlCommand(query, _conexion);
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            using var reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                var item = new T();
+                MapDataReaderToEntity(reader, item);
+                return item;
+            }
+            else
+            {
+                return default;
+            }
+        }
+
+        public T BuscarPorIdValoracion<T>(int id) where T : new()
+        {
+            var tableName = typeof(T).Name;
+            var primaryKey = "idValoracion"; // Cambia esto al nombre de tu clave primaria
+            var query = $"SELECT * FROM {tableName} WHERE {primaryKey} = @Id";
+
+            using var cmd = new MySqlCommand(query, _conexion);
+            cmd.Parameters.AddWithValue("@Id", id);
+
+            using var reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                var item = new T();
+                MapDataReaderToEntity(reader, item);
+                return item;
+            }
+            else
+            {
+                return default;
+            }
+        }
+
+        public void ActualizarValoracion<T>(T entity) where T : class
+        {
+            var tableName = typeof(T).Name;
+            var properties = typeof(T).GetProperties();
+            var primaryKey = "idValoracion";
+
+            // Construye la cláusula SET del comando SQL para actualizar cada propiedad
+            var setClause = string.Join(", ", properties.Select(p => $"{p.Name} = @{p.Name}"));
+
+            // Obtiene el valor de la clave primaria
+            var primaryKeyValue = entity.GetType().GetProperty(primaryKey)?.GetValue(entity);
+
+            if (primaryKeyValue != null)
+            {
+                // Construye el comando SQL para actualizar el objeto en la base de datos
+                var query = $"UPDATE {tableName} SET {setClause} WHERE {primaryKey} = @PrimaryKeyValue";
+
+                // Ejecuta el comando SQL
+                ExecuteNonQuery(query, entity);
+            }
+            else
+            {
+                System.Console.WriteLine("No se puede actualizar el objeto: no se proporcionó una clave primaria.");
+            }
+        }
+
     }
 }

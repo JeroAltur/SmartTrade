@@ -10,7 +10,7 @@ namespace SmartTrade.Services
 {
     internal class SmartTradeServices: ISmartTradeServices
     {
-        private readonly BD bd;
+        private readonly ServicioBD bd;
 
         public SmartTradeServices(ServicioBD servicio)
         {
@@ -134,7 +134,6 @@ namespace SmartTrade.Services
             Producto p = new Producto(name, description,price, imagenes, certificados, ficha);
             FabricaProducto fabricaProducto = new FabricaProducto();
             p = fabricaProducto.crearProducto(tipo, p);
-            bd.Insertar(p.valoraciones);
             bd.Insertar(p);
         }
 
@@ -142,9 +141,8 @@ namespace SmartTrade.Services
         {
             Producto product = new Producto();
             FabricaProducto fabricaProducto = new FabricaProducto();
-            p = fabricaProducto.crearProducto(tipo, p);
-            bd.Insertar(p.valoraciones);
-            bd.Insertar(p);
+            product = fabricaProducto.crearProducto(tipo, p);
+            bd.Insertar(product);
         }
 
         public void AñadirListaDeseos(ListaDeseos ld, Producto p)
@@ -162,52 +160,64 @@ namespace SmartTrade.Services
             bd.BorrarTodo();
 
             Producto p1 = new Producto("teclado", "teclado con pad numerico", 20, null, null, null);
-            p1.ValoracionNueva(5); p1.ValoracionNueva(4);
             AgregarProductoDirecto(p1, "electronica");
+            //p1.ValoracionNueva(5, bd); p1.ValoracionNueva(4, bd);
+            
 
             Producto p2 = new Producto("Redmi15", "movil xiaomi de ultima generacion ", 300, null, null, null);
-            p2.ValoracionNueva(5); p2.ValoracionNueva(4);
             AgregarProductoDirecto(p2, "electronica");
+            //p2.ValoracionNueva(5, bd); p2.ValoracionNueva(4, bd);
+            
 
             Producto p3 = new Producto("Manzana roja", "Manzana roja cultivada en España", 20, null, null, null);
-            p3.ValoracionNueva(5); p3.ValoracionNueva(5);
             AgregarProductoDirecto(p3, "comida");
+            //p3.ValoracionNueva(5, bd); p3.ValoracionNueva(5, bd);
+            
 
             Producto p4 = new Producto("Sudadera supreme", "sudadera de alta calidad", 20, null, null, null);
-            p4.ValoracionNueva(3); p4.ValoracionNueva(4);
             AgregarProductoDirecto(p4, "ropa");
+            //p4.ValoracionNueva(3, bd); p4.ValoracionNueva(4, bd);
+            
 
             Producto p5 = new Producto("Redmi15Pro", "Redmi15 con mejoras en el rendimiento y almacenamiento", 20, null, null, null);
-            p5.ValoracionNueva(5); p5.ValoracionNueva(5);
             AgregarProductoDirecto(p5, "electronica");
+            //p5.ValoracionNueva(5, bd); p5.ValoracionNueva(5, bd);
+            
 
             Producto p6 = new Producto("Redmi14", "movil xiaomi de alta calidad", 275, null, null, null);
-            p6.ValoracionNueva(4); p6.ValoracionNueva(4);
             AgregarProductoDirecto(p6, "electronica");
+            //p6.ValoracionNueva(4, bd); p6.ValoracionNueva(4, bd);
+            
 
             Producto p7 = new Producto("Redmi13", "movil xiaomi de alta calidad", 250, null, null, null);
-            p7.ValoracionNueva(4); p7.ValoracionNueva(4);
             AgregarProductoDirecto(p7, "electronica");
+            //p7.ValoracionNueva(4, bd); p7.ValoracionNueva(4, bd);
+            
 
             Producto p8 = new Producto("Redmi12", "movil xiaomi de alta calidad", 225, null, null, null);
-            p8.ValoracionNueva(4); p8.ValoracionNueva(4);
             AgregarProductoDirecto(p8, "electronica");
+            //p8.ValoracionNueva(4, bd); p8.ValoracionNueva(4, bd);
+            
 
             Producto p9 = new Producto("Redmi11", "movil xiaomi de alta calidad", 200, null, null, null);
-            p9.ValoracionNueva(4); p9.ValoracionNueva(3);
             AgregarProductoDirecto(p9, "electronica");
+            //p9.ValoracionNueva(4, bd); p9.ValoracionNueva(3, bd);
+            
 
             Producto p10 = new Producto("Redmi10", "movil xiaomi de alta calidad", 150, null, null, null);
-            p10.ValoracionNueva(3); p10.ValoracionNueva(3);
             AgregarProductoDirecto(p10, "electronica");
+            //p10.ValoracionNueva(3, bd); p10.ValoracionNueva(3, bd);
+            
 
             Producto p11 = new Producto("Redmi9", "movil xiaomi de alta calidad", 100, null, null, null);
-            p11.ValoracionNueva(3); p11.ValoracionNueva(2);
             AgregarProductoDirecto(p11, "electronica");
+            //p11.ValoracionNueva(3, bd); p11.ValoracionNueva(2, bd);
+            
 
             Producto p12 = new Producto("Iphone15", "Movil Iphone con cargador incluido", 999.99, null, null, null);
-            p12.ValoracionNueva(5); p12.ValoracionNueva(4);
             AgregarProductoDirecto(p12, "electronica");
+            //p12.ValoracionNueva(5, bd); p12.ValoracionNueva(4, bd);
+            
         }
     }
 }

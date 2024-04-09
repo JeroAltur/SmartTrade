@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SmartTrade.Services;
 
 namespace SmartTrade.Models
 {
     internal class Producto
     {
+        private static int contadorId = 1;
+
+        public int idProducto { get; set; }
         public string nombre {  get; set; }
         public string descripcion {  get; set; }
         public double precio {  get; set; }
         public List<string> imagenes { get; set; }
         public List<string> certificadosMedioambientales { get; set; }
         public string fichaTecnica {  get; set; }
-        public Valoracion valoraciones {  get; set; }
+        public int id_valoracion {  get; set; }
         public double valor {  get; set; }
 
         public int ventas {  get; set; }
@@ -23,8 +27,10 @@ namespace SmartTrade.Models
         {
             imagenes = new List<string>();
             certificadosMedioambientales = new List<string>();
-            valoraciones = new Valoracion(this);
-            valor = valoraciones.valor;
+            id_valoracion = 99999;
+            valor = 0;
+
+            idProducto = contadorId++;
         }
 
         public Producto(string nombre, string descripcion,double precio, List<string> imagenes, List<string> certificadosMedioambientales, string fichaTecnica): this()
@@ -37,15 +43,23 @@ namespace SmartTrade.Models
             this.fichaTecnica = fichaTecnica;
         }
 
-        public void venta()
+        public void venta(ServicioBD servicio)
         {
             this.ventas++;
+            servicio.Insertar(this);
         }
 
-        public void ValoracionNueva(double v) 
+        public void ValoracionNueva(double v, ServicioBD servicio) 
         {
-            this.valoraciones.valoracionNueva(v);
-            this.valor = valoraciones.valor;
+            if(this.id_valoracion == 99999) { 
+                Valoracion val = new Valoracion(this);
+                servicio.Insertar(val);
+                id_valoracion = val.idValoracion;
+            }
+            Valoracion valoracion = servicio.BuscarPorIdValoracion<Valoracion>(this.id_valoracion);
+            valoracion.valoracionNueva(v, servicio);
+            this.valor = valoracion.valor;
+            servicio.Insertar(this);
         }
 
     }
