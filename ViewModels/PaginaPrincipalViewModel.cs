@@ -38,7 +38,7 @@ namespace SmartTrade.ViewModels
         [RelayCommand]
         public async Task ListarTerndencias() 
         {
-            var productos = _dataService.ObtenerTendencias();
+            var productos = _dataService.Tendencias();
             foreach (var producto in productos)
             {
                 Tendencias.Add(producto);                
@@ -49,7 +49,7 @@ namespace SmartTrade.ViewModels
         [RelayCommand]
         public async Task ListarMejorValorados()
         {
-            var productos = _dataService.ObtenerMejorValorados();
+            var productos = _dataService.MejorValorado();
             foreach (var producto in productos)
             {
                 Tendencias.Add(producto);
