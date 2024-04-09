@@ -2,7 +2,7 @@ namespace SmartTrade.Views;
 
 public partial class PaginaBuscador : ContentPage
 {
-	public PaginaBuscador()
+	public PaginaBuscador(string textoBusqueda)
 	{
 		InitializeComponent();
 	}

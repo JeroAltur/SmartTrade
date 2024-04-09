@@ -14,7 +14,9 @@
     <VerticalStackLayout>
 
         <!-- Barra de búsqueda fija en la parte superior -->
-        <SearchBar Placeholder="Buscar..."
+        <SearchBar x:Name="searchBar"
+                   Placeholder="Buscar..."
+                   SearchButtonPressed="OnSearchButtonPressed"
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="Start"
                    Margin="10" />

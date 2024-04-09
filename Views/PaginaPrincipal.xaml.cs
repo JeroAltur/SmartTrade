@@ -6,4 +6,10 @@ public partial class PaginaPrincipal : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	private async void OnSearchButtonPressed(object sender, EventArgs e)
+	{
+		string searchBarText = searchBar.Text;
+		await Navigation.PushAsync(new PaginaBuscador(searchBarText));
+	}
 }
