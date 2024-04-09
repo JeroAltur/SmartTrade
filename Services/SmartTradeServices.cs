@@ -132,17 +132,15 @@ namespace SmartTrade.Services
         public void AgregarProducto(string name, string description, double price, List<string> imagenes, List<string> certificados, string ficha, string tipo)
         {
             Producto p = new Producto(name, description,price, imagenes, certificados, ficha);
-            FabricaProducto fabricaProducto = new FabricaProducto();
-            p = fabricaProducto.crearProducto(tipo, p);
-            bd.Insertar(p);
+            FabricaProducto fabricaProducto = new FabricaProducto(bd);
+            fabricaProducto.crearProducto(tipo, p);
         }
 
         public void AgregarProductoDirecto(Producto p, string tipo)
         {
             Producto product = new Producto();
-            FabricaProducto fabricaProducto = new FabricaProducto();
-            product = fabricaProducto.crearProducto(tipo, p);
-            bd.Insertar(product);
+            FabricaProducto fabricaProducto = new FabricaProducto(bd);
+            fabricaProducto.crearProducto(tipo, p);
         }
 
         public void AñadirListaDeseos(ListaDeseos ld, Producto p)
