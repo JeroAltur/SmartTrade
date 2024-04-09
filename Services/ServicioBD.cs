@@ -58,7 +58,10 @@ namespace SmartTrade.Services
 
         public void Crear<T>() where T : class
         {
-            var query = $"CREATE TABLE IF NOT EXISTS {typeof(T).Name} (...)";
+            var tableName = typeof(T).Name;
+            var properties = typeof(T).GetProperties();
+            var columnDefinitions = string.Join(", ", properties.Select(p => $"{p.Name} {GetSqlType(p.PropertyType)}"));
+            var query = $"CREATE TABLE IF NOT EXISTS {tableName} ({columnDefinitions})";
             ExecuteNonQuery(query);
         }
 
@@ -97,7 +100,8 @@ namespace SmartTrade.Services
             {
                 // Mapea los datos del lector al objeto T 
                 var item = new T();
-                
+                MapDataReaderToEntity(reader, item);
+
                 result.Add(item);
             }
             return result;
@@ -116,6 +120,33 @@ namespace SmartTrade.Services
             }
 
             command.ExecuteNonQuery();
+        }
+
+        private void MapDataReaderToEntity<T>(MySqlDataReader reader, T entity)
+        {
+            var properties = typeof(T).GetProperties();
+            foreach (var property in properties)
+            {
+                if (!reader.IsDBNull(reader.GetOrdinal(property.Name)))
+                {
+                    var value = reader[property.Name];
+                    property.SetValue(entity, value);
+                }
+            }
+        }
+
+        private string GetSqlType(Type type)
+        {
+            if (type == typeof(int))
+                return "INT";
+            else if (type == typeof(string))
+                return "VARCHAR(255)";
+            else if (type == typeof(double))
+                return "DOUBLE";
+            else if (type == typeof(DateTime))
+                return "DATETIME";
+            else
+                throw new NotSupportedException($"El tipo {type.Name} no es compatible con SQL.");
         }
     }
 }
