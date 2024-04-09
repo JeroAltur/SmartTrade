@@ -142,6 +142,7 @@ namespace SmartTrade.Services
             Producto product = new Producto();
             FabricaProducto fabricaProducto = new FabricaProducto();
             p = fabricaProducto.crearProducto(tipo, p);
+            bd.Insertar(p.valoraciones);
             bd.Insertar(p);
         }
 
