@@ -159,6 +159,11 @@ namespace SmartTrade.Services
 
         public void IniciarBD()
         {
+            bd.Crear<Producto>();
+            bd.Crear<Valoracion>();
+            bd.Crear<Comida>();
+            bd.Crear<Electronica>();
+            bd.Crear<Ropa>();
             bd.BorrarTodo();
 
             Producto p1 = new Producto("teclado", "teclado con pad numerico", 20, null, null, null);
