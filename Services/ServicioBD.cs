@@ -74,6 +74,7 @@ namespace SmartTrade.Services
             Limpiar<Comida>();
             Limpiar<Ropa>();
             Limpiar<Electronica>();
+            Limpiar<Valoracion>();
         }
 
         public void Cerrar()
