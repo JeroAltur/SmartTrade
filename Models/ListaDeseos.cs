@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SmartTrade.Services;
 
 namespace SmartTrade.Models
 {
     internal class ListaDeseos
     {
-        public List<Producto> productos { get; set; }
+        public List<int> id_prod { get; set; }
         public ListaDeseos() 
         { 
-            productos = new List<Producto>();
+            id_prod = new List<int>();
         }
 
-        public void añadirProducto(Producto p)
+        public void añadirProducto(int p, ServicioBD servicio)
         {
-            productos.Add(p);
+            id_prod.Add(p);
+
         }
 
-        public void eliminarProducto(Producto p)
+        public void eliminarProducto(int p, ServicioBD servicio)
         {
-            productos.Remove(p);
+            id_prod.Remove(p);
         }
     }
 }
