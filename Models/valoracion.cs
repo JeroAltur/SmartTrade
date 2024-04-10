@@ -37,8 +37,10 @@ namespace SmartTrade.Models
             this.valoraciones++;
             this.total += v;
             this.valor = this.total / this.valoraciones;
-            servicio.ActualizarValoracion(this);
+            servicio.Actualizar(this, "idValoracion");
+
         }
+
 
     }
 }

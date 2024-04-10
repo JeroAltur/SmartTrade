@@ -228,11 +228,10 @@ namespace SmartTrade.Services
             }
         }
 
-        public void ActualizarValoracion<T>(T entity) where T : class
+        public void Actualizar<T>(T entity, string primaryKey) where T : class
         {
             var tableName = typeof(T).Name;
             var properties = typeof(T).GetProperties();
-            var primaryKey = "idValoracion";
 
             // Construye la cláusula SET del comando SQL para actualizar cada propiedad
             var setClause = string.Join(", ", properties.Select(p => $"{p.Name} = @{p.Name}"));
@@ -243,10 +242,10 @@ namespace SmartTrade.Services
             if (primaryKeyValue != null)
             {
                 // Construye el comando SQL para actualizar el objeto en la base de datos
-                var query = $"UPDATE {tableName} SET {setClause} WHERE {primaryKey} = @PrimaryKeyValue";
+                var query = $"UPDATE {tableName} SET {setClause} WHERE {primaryKey} = @{primaryKey}";
 
                 // Ejecuta el comando SQL
-                ExecuteNonQuery(query, entity);
+                ExecuteNonQuery(query, new { PrimaryKeyValue = primaryKeyValue });
             }
             else
             {

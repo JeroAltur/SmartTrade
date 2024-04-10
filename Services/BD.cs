@@ -17,7 +17,7 @@ namespace SmartTrade.Services
         public void Cerrar();
         public T BuscarPorIdProducto<T>(int id) where T : new();
         public T BuscarPorIdValoracion<T>(int id) where T : new();
-        public void ActualizarValoracion<T>(T entity) where T : class;
+        public void Actualizar<T>(T entity, string primaryKey) where T : class;
 
     }
 }
