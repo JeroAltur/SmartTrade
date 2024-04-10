@@ -146,7 +146,7 @@ namespace SmartTrade.Services
 
             Producto p1 = new Producto("teclado", "teclado con pad numerico", 20, null, null, null);
             AgregarProductoDirecto(p1, "electronica");
-            p1.ValoracionNueva(5, bd); p1.ValoracionNueva(4, bd);
+            //p1.ValoracionNueva(5, bd); p1.ValoracionNueva(4, bd);
             
 
             Producto p2 = new Producto("Redmi15", "movil xiaomi de ultima generacion ", 300, null, null, null);
