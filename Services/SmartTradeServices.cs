@@ -44,14 +44,23 @@ namespace SmartTrade.Services
 
         public List<Producto> ObtenerListaDeseos()
         {
+            List<Producto> ProductosDeseados = new List<Producto>();
+            List<ListaDeseos> listasDeseos = bd.Todo<ListaDeseos>();
+            List<int> lista = listasDeseos[0].id_prod;
 
-            var todosLosProductos = bd.Todo<Producto>();
-            var ProductosDeseados = new List<Producto>();
+            foreach (int i in lista)
+            {
+                ProductosDeseados.Add(ProductoPorId(i));
+            }
 
             return ProductosDeseados;
-        
-        
-        
+        }
+
+        public Producto ProductoPorId(int id)
+        {
+            Producto producto = new Producto();
+            producto = bd.BuscarPorIdValoracion<Producto>(id);
+            return producto;
         }
 
         public List<Producto> MejorValorado()
