@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using SmartTrade;
 using SmartTrade.Services;
 using SmartTrade.ViewModels;
 using SmartTrade.Views;

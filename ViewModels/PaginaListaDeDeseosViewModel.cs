@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.Input;
+using SmartTrade.Models;
+using SmartTrade.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using SmartTrade.Models;
-using CommunityToolkit.Maui.Converters;
-using CommunityToolkit.Maui.Core;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Microsoft.Maui.Controls;
-using System.Windows.Input;
-using SmartTrade.Services;
 
 
 namespace SmartTrade.ViewModels
@@ -24,22 +14,25 @@ namespace SmartTrade.ViewModels
 
         private readonly SmartTradeServices _dataService;
 
-        public PaginaListaDeDeseosViewModel(SmartTradeServices dataService ){
-            
+        public PaginaListaDeDeseosViewModel(SmartTradeServices dataService)
+        {
+
             _dataService = dataService;
             Deseados = new ObservableCollection<Producto>();
         }
 
         [RelayCommand]
-       public async Task ListarDeseos() {
-            List<Producto>productos =  _dataService.ObtenerListaDeseos();
-            foreach (var producto in productos) { 
-            
-            Deseados.Add(producto);
+        public async Task ListarDeseos()
+        {
+            List<Producto> productos = _dataService.ObtenerListaDeseos();
+            foreach (var producto in productos)
+            {
+
+                Deseados.Add(producto);
             }
 
 
-            
+
 
         }
 
@@ -56,4 +49,4 @@ namespace SmartTrade.ViewModels
 
     }
 
-    }
+}

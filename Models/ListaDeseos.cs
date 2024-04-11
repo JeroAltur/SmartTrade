@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SmartTrade.Services;
+﻿using SmartTrade.Services;
 
 namespace SmartTrade.Models
 {
     internal class ListaDeseos
     {
         public List<int> id_prod { get; set; }
-        public ListaDeseos() 
-        { 
+        public ListaDeseos()
+        {
             id_prod = new List<int>();
         }
 

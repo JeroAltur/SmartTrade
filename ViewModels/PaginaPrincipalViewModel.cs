@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using SmartTrade.Models;
 using SmartTrade.Services;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
 namespace SmartTrade.ViewModels
 {
@@ -15,7 +10,7 @@ namespace SmartTrade.ViewModels
     {
         private readonly SmartTradeServices _dataService;
 
-        public ObservableCollection<Producto> Tendencias { get;  }
+        public ObservableCollection<Producto> Tendencias { get; }
         public ObservableCollection<Producto> MejorValorados { get; }
         public ObservableCollection<Producto> CompradosPorIronMan { get; }
 
@@ -36,12 +31,12 @@ namespace SmartTrade.ViewModels
         }
 
         [RelayCommand]
-        public async Task ListarTerndencias() 
+        public async Task ListarTerndencias()
         {
             var productos = _dataService.Tendencias();
             foreach (var producto in productos)
             {
-                Tendencias.Add(producto);                
+                Tendencias.Add(producto);
             }
 
         }

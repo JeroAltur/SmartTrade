@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using SmartTrade.Models;
 
 namespace SmartTrade.Services
 {
-    internal class ServicioBD: BD
+    internal class ServicioBD : BD
     {
         private readonly MySqlConnection _conexion;
 
@@ -29,7 +26,7 @@ namespace SmartTrade.Services
         public void Borrar<T>(T entity, string id) where T : class
         {
             var tableName = typeof(T).Name;
-            var primaryKey = id; 
+            var primaryKey = id;
             var primaryKeyValue = entity.GetType().GetProperty(primaryKey)?.GetValue(entity);
 
             if (primaryKeyValue != null)
