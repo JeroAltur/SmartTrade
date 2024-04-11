@@ -228,28 +228,37 @@ namespace SmartTrade.Services
             }
         }
 
-        public void Actualizar<T>(T entity, string primaryKey) where T : class
+        public void Actualizar<T>(T entity, string id) where T : class
         {
             var tableName = typeof(T).Name;
             var properties = typeof(T).GetProperties();
-
-            // Construye la cláusula SET del comando SQL para actualizar cada propiedad
-            var setClause = string.Join(", ", properties.Select(p => $"{p.Name} = @{p.Name}"));
-
-            // Obtiene el valor de la clave primaria
+            var primaryKey = id;
             var primaryKeyValue = entity.GetType().GetProperty(primaryKey)?.GetValue(entity);
 
             if (primaryKeyValue != null)
             {
-                // Construye el comando SQL para actualizar el objeto en la base de datos
-                var query = $"UPDATE {tableName} SET {setClause} WHERE {primaryKey} = @{primaryKey}";
+                var columnUpdates = string.Join(", ", properties.Select(p => $"{p.Name} = @{p.Name}"));
+                var query = $"UPDATE {tableName} SET {columnUpdates} WHERE {primaryKey} = @PrimaryKeyValue";
 
-                // Ejecuta el comando SQL
-                ExecuteNonQuery(query, new { PrimaryKeyValue = primaryKeyValue });
+                var parameters = new Dictionary<string, object>();
+                foreach (var property in properties)
+                {
+                    parameters[$"@{property.Name}"] = property.GetValue(entity);
+                }
+                parameters["@PrimaryKeyValue"] = primaryKeyValue;
+
+                try
+                {
+                    ExecuteNonQuery(query, parameters);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error al actualizar el registro: " + ex.Message);
+                }
             }
             else
             {
-                System.Console.WriteLine("No se puede actualizar el objeto: no se proporcionó una clave primaria.");
+                Console.WriteLine("No se encontró la clave primaria para actualizar el objeto.");
             }
         }
 

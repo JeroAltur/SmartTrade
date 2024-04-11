@@ -31,7 +31,13 @@ namespace SmartTrade.ViewModels
         private List<String> _certificado;
         private List<String> _imagen;
 
-        
+        public AgregarProductoViewModel(SmartTradeServices servicio)
+        {
+            _dataService = servicio;
+        }
+
+
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {

@@ -46,7 +46,7 @@ namespace SmartTrade.Models
         public void venta(ServicioBD servicio)
         {
             this.ventas++;
-            servicio.Insertar(this);
+            servicio.Actualizar(this, "idProducto");
         }
 
         public void ValoracionNueva(double v, ServicioBD servicio) 
@@ -59,7 +59,7 @@ namespace SmartTrade.Models
             Valoracion valoracion = servicio.BuscarPorIdValoracion<Valoracion>(this.id_valoracion);
             valoracion.valoracionNueva(v, servicio);
             this.valor = valoracion.valor;
-            servicio.Insertar(this);
+            servicio.Actualizar(this, "idProducto");
         }
 
     }
