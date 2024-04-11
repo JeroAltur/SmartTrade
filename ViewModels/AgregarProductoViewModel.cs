@@ -12,7 +12,6 @@ using SmartTrade.Views;
 using SmartTrade.Services;
 using SmartTrade.Models;
 using Org.BouncyCastle.Bcpg.OpenPgp;
-using CommunityToolkit.Mvvm.Input;
 using Microsoft.Maui.Storage;
 
 
@@ -131,13 +130,6 @@ namespace SmartTrade.ViewModels
         // Comando para guardar el producto
         public ICommand GuardarProductoCommand { protected set; get; }
 
-        public AgregarProductoViewModel( SmartTradeServices dataService, FabricaProducto fabricaProducto)
-        {
-            _dataService = dataService;
-           // _fabricaProducto = fabricaProducto;
-
-            
-        }
 
         [RelayCommand]
         public async Task CrearProducto()
