@@ -26,10 +26,10 @@ namespace SmartTrade.Services
             ExecuteNonQuery(query, entity);
         }
 
-        public void Borrar<T>(T entity) where T : class
+        public void Borrar<T>(T entity, string id) where T : class
         {
             var tableName = typeof(T).Name;
-            var primaryKey = "Id"; // Cambia esto al nombre de tu clave primaria
+            var primaryKey = id; 
             var primaryKeyValue = entity.GetType().GetProperty(primaryKey)?.GetValue(entity);
 
             if (primaryKeyValue != null)
