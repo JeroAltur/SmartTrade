@@ -52,22 +52,22 @@ namespace SmartTrade.ViewModels
             var productos = _dataService.MejorValorado();
             foreach (var producto in productos)
             {
-                Tendencias.Add(producto);
+                MejorValorados.Add(producto);
             }
 
         }
-/*
-        [RelayCommand]
-        public async Task ListarCompradosPorIronMan()
-        {
-            var productos = _dataService.ObtenerCompradosPorIronMan();
-            foreach (var producto in productos)
-            {
-                Tendencias.Add(producto);
-            }
+        /*
+                [RelayCommand]
+                public async Task ListarCompradosPorIronMan()
+                {
+                    var productos = _dataService.ObtenerCompradosPorIronMan();
+                    foreach (var producto in productos)
+                    {
+                        CompradosPorIronMan.Add(producto);
+                    }
 
-        }
-*/
+                }
+        */
 
     }
 }

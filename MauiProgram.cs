@@ -32,6 +32,12 @@ namespace SmartTrade
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<SmartTradeServices>(provider =>
+            {
+                var conexion = new Conexion();
+                return new SmartTradeServices(new ServicioBD(conexion.GetConexion()));
+            });
+
 
 
             //Add ViewModels
