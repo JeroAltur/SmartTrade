@@ -21,7 +21,6 @@ namespace SmartTrade.ViewModels
     internal partial class AgregarProductoViewModel
     {
         private readonly SmartTradeServices _dataService;
-        private readonly FabricaProducto _fabricaProducto;
 
         private String _nombre;
         private String _descripcion;

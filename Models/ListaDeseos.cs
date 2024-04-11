@@ -15,6 +15,11 @@ namespace SmartTrade.Models
             id_prod = new List<int>();
         }
 
+        public ListaDeseos(List<int> lista)
+        {
+            id_prod = lista;
+        }
+
         public void añadirProducto(int p, ServicioBD servicio)
         {
             id_prod.Add(p);
