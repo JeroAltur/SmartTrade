@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartTrade.Models
+﻿namespace SmartTrade.Models
 {
     internal class Comida : Producto
     {
         public Comida() { }
 
-        public Comida(Producto p) 
+        public Comida(Producto p)
         {
             this.idProducto = p.idProducto;
             this.nombre = p.nombre;

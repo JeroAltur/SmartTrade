@@ -1,19 +1,8 @@
-﻿
-using System.Collections.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using CommunityToolkit.Mvvm.Input;
-using SmartTrade.Views;
-using SmartTrade.Services;
+﻿using CommunityToolkit.Mvvm.Input;
 using SmartTrade.Models;
-using Org.BouncyCastle.Bcpg.OpenPgp;
-using CommunityToolkit.Mvvm.Input;
-using Microsoft.Maui.Storage;
+using SmartTrade.Services;
+using System.ComponentModel;
+using System.Windows.Input;
 
 
 namespace SmartTrade.ViewModels
@@ -73,15 +62,17 @@ namespace SmartTrade.ViewModels
             }
         }
 
-        public string Ficha { 
+        public string Ficha
+        {
             get { return _ficha; }
-            set { 
-               _ficha = value;
-                OnPropertyChanged(nameof(Ficha));            
+            set
+            {
+                _ficha = value;
+                OnPropertyChanged(nameof(Ficha));
             }
 
-        
-        
+
+
         }
 
         public String Tipo
@@ -131,19 +122,12 @@ namespace SmartTrade.ViewModels
         // Comando para guardar el producto
         public ICommand GuardarProductoCommand { protected set; get; }
 
-        public AgregarProductoViewModel( SmartTradeServices dataService, FabricaProducto fabricaProducto)
-        {
-            _dataService = dataService;
-           // _fabricaProducto = fabricaProducto;
-
-            
-        }
 
         [RelayCommand]
         public async Task CrearProducto()
         {
 
-            Producto producto = new Producto(Nombre,Descripcion, Precio, Imagen,Certificado,Ficha);
+            Producto producto = new Producto(Nombre, Descripcion, Precio, Imagen, Certificado, Ficha);
             _dataService.AgregarProducto(Nombre, Descripcion, Precio, Imagen, Certificado, Ficha, Tipo);
             LimpiarFormulario();
 

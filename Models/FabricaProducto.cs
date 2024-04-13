@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using SmartTrade.Services;
+﻿using SmartTrade.Services;
 
 namespace SmartTrade.Models
 {
@@ -15,8 +9,9 @@ namespace SmartTrade.Models
         {
             bd = servicio;
         }
-        public void crearProducto(string tipo, Producto p) {
-            
+        public void crearProducto(string tipo, Producto p)
+        {
+
             if (tipo == "ropa")
             {
                 Ropa nuevoProducto = null;
@@ -29,7 +24,8 @@ namespace SmartTrade.Models
                 nuevoProducto = new Comida(p);
                 bd.Insertar(nuevoProducto);
             }
-            if (tipo == "electronica") {
+            if (tipo == "electronica")
+            {
                 Electronica nuevoProducto = null;
                 nuevoProducto = new Electronica(p);
                 bd.Insertar(nuevoProducto);

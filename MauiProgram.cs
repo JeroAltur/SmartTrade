@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using SmartTrade;
 using SmartTrade.Services;
 using SmartTrade.ViewModels;
 using SmartTrade.Views;
@@ -17,7 +16,7 @@ namespace SmartTrade
             var conexion = new Conexion();
             SmartTradeServices servicio = new SmartTradeServices(new ServicioBD(conexion.GetConexion()));
 
-            //Recordar borrar esto en cierto punto, ya que borra los datos i crea nuevos
+            //Recordar borrar esto en cierto punto, ya que borra los datos i crea nuevos, pero ara es queda
             servicio.IniciarBD();
 
             var builder = MauiApp.CreateBuilder();
@@ -31,6 +30,12 @@ namespace SmartTrade
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddSingleton<SmartTradeServices>(provider =>
+            {
+                var conexion = new Conexion();
+                return new SmartTradeServices(new ServicioBD(conexion.GetConexion()));
+            });
 
 
 

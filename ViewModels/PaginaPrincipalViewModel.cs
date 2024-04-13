@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Collections.ObjectModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using SmartTrade.Models;
 using SmartTrade.Views;
 using SmartTrade.Services;
@@ -19,7 +15,7 @@ namespace SmartTrade.ViewModels
         private readonly SmartTradeServices _dataService;
         private readonly INavigation _navigation;
 
-        public ObservableCollection<Producto> Tendencias { get;  }
+        public ObservableCollection<Producto> Tendencias { get; }
         public ObservableCollection<Producto> MejorValorados { get; }
         public ObservableCollection<Producto> CompradosPorIronMan { get; }
         public ICommand SearchCommand { get; private set; }
@@ -53,12 +49,12 @@ namespace SmartTrade.ViewModels
         }
 
         [RelayCommand]
-        public async Task ListarTerndencias() 
+        public async Task ListarTerndencias()
         {
             var productos = _dataService.Tendencias();
             foreach (var producto in productos)
             {
-                Tendencias.Add(producto);                
+                Tendencias.Add(producto);
             }
 
         }
@@ -69,22 +65,22 @@ namespace SmartTrade.ViewModels
             var productos = _dataService.MejorValorado();
             foreach (var producto in productos)
             {
-                Tendencias.Add(producto);
+                MejorValorados.Add(producto);
             }
 
         }
-/*
-        [RelayCommand]
-        public async Task ListarCompradosPorIronMan()
-        {
-            var productos = _dataService.ObtenerCompradosPorIronMan();
-            foreach (var producto in productos)
-            {
-                Tendencias.Add(producto);
-            }
+        /*
+                [RelayCommand]
+                public async Task ListarCompradosPorIronMan()
+                {
+                    var productos = _dataService.ObtenerCompradosPorIronMan();
+                    foreach (var producto in productos)
+                    {
+                        CompradosPorIronMan.Add(producto);
+                    }
 
-        }
-*/
+                }
+        */
 
     }
 }

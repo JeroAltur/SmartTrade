@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SmartTrade.Models
+﻿namespace SmartTrade.Models
 {
     internal class Electronica : Producto
     {
         public Electronica() { }
-        public Electronica(Producto p) 
+        public Electronica(Producto p)
         {
             this.idProducto = p.idProducto;
             this.nombre = p.nombre;

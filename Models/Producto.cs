@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SmartTrade.Services;
+﻿using SmartTrade.Services;
 
 namespace SmartTrade.Models
 {
@@ -12,18 +7,18 @@ namespace SmartTrade.Models
         private static int contadorId = 1;
 
         public int idProducto { get; set; }
-        public string nombre {  get; set; }
-        public string descripcion {  get; set; }
-        public double precio {  get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+        public double precio { get; set; }
         public List<string> imagenes { get; set; }
         public List<string> certificadosMedioambientales { get; set; }
-        public string fichaTecnica {  get; set; }
-        public int id_valoracion {  get; set; }
-        public double valor {  get; set; }
+        public string fichaTecnica { get; set; }
+        public int id_valoracion { get; set; }
+        public double valor { get; set; }
 
-        public int ventas {  get; set; }
+        public int ventas { get; set; }
 
-        public Producto() 
+        public Producto()
         {
             imagenes = new List<string>();
             certificadosMedioambientales = new List<string>();
@@ -33,7 +28,7 @@ namespace SmartTrade.Models
             idProducto = contadorId++;
         }
 
-        public Producto(string nombre, string descripcion,double precio, List<string> imagenes, List<string> certificadosMedioambientales, string fichaTecnica): this()
+        public Producto(string nombre, string descripcion, double precio, List<string> imagenes, List<string> certificadosMedioambientales, string fichaTecnica) : this()
         {
             this.nombre = nombre;
             this.descripcion = descripcion;
@@ -49,9 +44,10 @@ namespace SmartTrade.Models
             servicio.Actualizar(this, "idProducto");
         }
 
-        public void ValoracionNueva(double v, ServicioBD servicio) 
+        public void ValoracionNueva(double v, ServicioBD servicio)
         {
-            if(this.id_valoracion == 99999) { 
+            if (this.id_valoracion == 99999)
+            {
                 Valoracion val = new Valoracion(this);
                 servicio.Insertar(val);
                 id_valoracion = val.idValoracion;
@@ -63,5 +59,5 @@ namespace SmartTrade.Models
         }
 
     }
-    
+
 }
