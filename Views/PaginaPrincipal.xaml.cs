@@ -1,3 +1,6 @@
+using SmartTrade.ViewModels;
+using SmartTrade.Services;
+
 namespace SmartTrade.Views;
 
 public partial class PaginaPrincipal : ContentPage
@@ -5,11 +8,7 @@ public partial class PaginaPrincipal : ContentPage
 	public PaginaPrincipal()
 	{
 		InitializeComponent();
-	}
-
-	private async void OnSearchButtonPressed(object sender, EventArgs e)
-	{
-		string searchBarText = searchBar.Text;
-		await Navigation.PushAsync(new PaginaBuscador(searchBarText));
+		var viewModel = new PaginaPrincipalViewModel(new SmartTradeServices(new ServicioBD(new Conexion().GetConexion())), Navigation);
+		BindingContext = viewModel;
 	}
 }

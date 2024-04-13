@@ -16,7 +16,9 @@
         <!-- Barra de búsqueda fija en la parte superior -->
         <SearchBar x:Name="searchBar"
                    Placeholder="Buscar..."
-                   SearchButtonPressed="OnSearchButtonPressed"
+                   Text="{Binding SearchText}"
+                   SearchCommand="{Binding SearchCommand}"
+                   SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="Start"
                    Margin="10" />
