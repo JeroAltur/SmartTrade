@@ -81,7 +81,7 @@ namespace SmartTrade.Services
 
            resultadoProvicional = resultadoProvicional.OrderByDescending(p => p.valor).ToList();
            List<Producto> result = resultadoProvicional.Take(8).ToList();
-           return resultadoProvicional;
+           return result;
         }
 
         public List<Producto> Buscador(String valor)
