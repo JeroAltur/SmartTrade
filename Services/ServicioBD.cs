@@ -75,9 +75,9 @@ namespace SmartTrade.Services
         {
             _conexion.CreateTable<Producto>();
             _conexion.CreateTable<Valoracion>();
-
-            // Agrega un atributo ForeignKey en la propiedad ProductoId
-            _conexion.CreateTable<Valoracion>(CreateFlags.AllImplicit | CreateFlags.ForceForeignKey);
+            _conexion.CreateTable<Electronica>();
+            _conexion.CreateTable<Comida>();
+            _conexion.CreateTable<Ropa>();
 
             _conexion.Commit();
         }

@@ -47,6 +47,7 @@ namespace SmartTrade.Models
         {
             valoracion.valoracionNueva(v, servicio);
             valor = valoracion.valor;
+            servicio.Actualizar(this);
         }
 
     }

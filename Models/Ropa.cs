@@ -13,7 +13,7 @@
             this.imagenes = p.imagenes;
             this.certificadosMedioambientales = p.certificadosMedioambientales;
             this.fichaTecnica = p.fichaTecnica;
-            this.id_valoracion = p.id_valoracion;
+            this.valoracion = p.valoracion;
             this.valor = p.valor;
             this.ventas = p.ventas;
         }
