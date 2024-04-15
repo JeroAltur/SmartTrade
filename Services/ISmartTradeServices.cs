@@ -10,7 +10,7 @@ namespace SmartTrade.Services
         public void IniciarBD();
         public List<Producto> ObtenerListaDeseos();
         public List<Producto> Buscador(String valor);
-        public void AñadirListaDeseos(ListaDeseos ld, int p);
-        public void EliminarListaDeseos(ListaDeseos ld, int p);
+        public void AñadirListaDeseos(ListaDeseos ld, Producto p);
+        public void EliminarListaDeseos(ListaDeseos ld, Producto p);
     }
 }

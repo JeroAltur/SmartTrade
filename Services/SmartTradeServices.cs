@@ -40,11 +40,11 @@ namespace SmartTrade.Services
         {
             List<Producto> ProductosDeseados = new List<Producto>();
             List<ListaDeseos> listasDeseos = bd.Todo<ListaDeseos>();
-            List<int> lista = listasDeseos[0].id_prod;
+            List<Producto> lista = listasDeseos[0].prod;
 
-            foreach (int i in lista)
+            foreach (Producto p in lista)
             {
-                ProductosDeseados.Add(ProductoPorId(i));
+                ProductosDeseados.Add(p);
             }
 
             return ProductosDeseados;
@@ -53,7 +53,7 @@ namespace SmartTrade.Services
         public Producto ProductoPorId(int id)
         {
             Producto producto = new Producto();
-            producto = bd.BuscarPorIdValoracion<Producto>(id);
+            producto = bd.BuscarPorID<Producto>(id);
             return producto;
         }
 
@@ -131,12 +131,12 @@ namespace SmartTrade.Services
             fabricaProducto.crearProducto(tipo, p);
         }
 
-        public void AñadirListaDeseos(ListaDeseos ld, int p)
+        public void AñadirListaDeseos(ListaDeseos ld, Producto p)
         {
             ld.añadirProducto(p, bd);
         }
 
-        public void EliminarListaDeseos(ListaDeseos ld, int p)
+        public void EliminarListaDeseos(ListaDeseos ld, Producto p)
         {
             ld.eliminarProducto(p, bd);
         }
