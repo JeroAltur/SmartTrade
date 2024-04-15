@@ -25,7 +25,7 @@
                                 <Image></Image>
                                 <StackLayout>
                                     <Label Text="{Binding nombre}"></Label>
-                                    <Label Text="{Binding id_valoracion, StringFormat='Valoración: {0}'}"></Label>
+                                    <Label Text="{Binding valor, StringFormat='Valoración: {0}'}"></Label>
                                     <Label Text="{Binding precio, StringFormat='Precio: {0}€'}"></Label>
                                 </StackLayout>
                             </StackLayout>
