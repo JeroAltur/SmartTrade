@@ -8,7 +8,7 @@ public partial class PaginaPrincipal : ContentPage
 	public PaginaPrincipal()
 	{
 		InitializeComponent();
-		var viewModel = new PaginaPrincipalViewModel(new SmartTradeServices(new ServicioBD(new Conexion().GetConexion())), Navigation);
+		var viewModel = new PaginaPrincipalViewModel(new SmartTradeServices(new ServicioBD(InicializacionServicioBD.GetDatabasePath())), Navigation);
 		BindingContext = viewModel;
 	}
 }

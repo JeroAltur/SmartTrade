@@ -17,6 +17,7 @@ namespace SmartTrade.Models
             this.valor = 0;
             this.valoraciones = 0;
             this.total = 0;
+            this.id_prod = 0;
         }
 
         public Valoracion(Producto p) : this()

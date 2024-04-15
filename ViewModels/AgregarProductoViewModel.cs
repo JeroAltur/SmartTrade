@@ -127,9 +127,9 @@ namespace SmartTrade.ViewModels
         public async Task CrearProducto()
         {
 
-            Producto producto = new Producto(Nombre, Descripcion, Precio, Imagen, Certificado, Ficha);
+            /*Producto producto = new Producto(Nombre, Descripcion, Precio, Imagen, Certificado, Ficha);
             _dataService.AgregarProducto(Nombre, Descripcion, Precio, Imagen, Certificado, Ficha, Tipo);
-            LimpiarFormulario();
+            LimpiarFormulario();*/
 
 
 

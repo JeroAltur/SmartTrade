@@ -11,9 +11,9 @@
             this.descripcion = p.descripcion;
             this.precio = p.precio;
             this.imagenes = p.imagenes;
-            this.certificadosMedioambientales = p.certificadosMedioambientales;
+            this.HuellaAmbiental = p.HuellaAmbiental;
             this.fichaTecnica = p.fichaTecnica;
-            this.valoracion = p.valoracion;
+            //this.valoracion = p.valoracion;
             this.valor = p.valor;
             this.ventas = p.ventas;
         }

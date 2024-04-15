@@ -6,7 +6,7 @@ namespace SmartTrade.Services
     {
         public List<Producto> Tendencias();
         public List<Producto> MejorValorado();
-        public void AgregarProducto(string name, string dscription, double price, List<string> imagenes, List<string> certificados, string ficha, string tipo);
+        public void AgregarProducto(string name, string description, double price, string imagenes, double huella, string ficha, string tipo);
         public void IniciarBD();
         public List<Producto> ObtenerListaDeseos();
         public List<Producto> Buscador(String valor);

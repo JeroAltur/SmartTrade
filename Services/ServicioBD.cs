@@ -14,8 +14,8 @@ namespace SmartTrade.Services
         public ServicioBD(string dbPath)
         {
             _conexion = new SQLiteConnection(dbPath);
+            //_conexion.CreateTable<Valoracion>();
             _conexion.CreateTable<Producto>();
-            _conexion.CreateTable<Valoracion>();
             _conexion.CreateTable<Electronica>();
             _conexion.CreateTable<Comida>();
             _conexion.CreateTable<Ropa>();
