@@ -52,7 +52,6 @@ namespace SmartTrade.Services
             Limpiar<Comida>();
             Limpiar<Ropa>();
             Limpiar<Electronica>();
-            Limpiar<Valoracion>();
         }
 
         public T BuscarPorID<T>(int id) where T : class, new()

@@ -13,8 +13,9 @@ namespace SmartTrade
     {
         public static MauiApp CreateMauiApp()
         {
-            var conexion = new Conexion();
-            SmartTradeServices servicio = new SmartTradeServices(new ServicioBD(""));
+            string dbPath = InicializacionServicioBD.GetDatabasePath();
+            ServicioBD servicioBD = new ServicioBD(dbPath);
+            SmartTradeServices servicio = new SmartTradeServices(servicioBD);
 
             //Recordar borrar esto en cierto punto, ya que borra los datos i crea nuevos, pero ara es queda
             servicio.IniciarBD();
@@ -33,8 +34,10 @@ namespace SmartTrade
 
             builder.Services.AddSingleton<SmartTradeServices>(provider =>
             {
-                var conexion = new Conexion();
-                return new SmartTradeServices(new ServicioBD(""));
+                string dbPath = InicializacionServicioBD.GetDatabasePath();
+                ServicioBD servicioBD = new ServicioBD(dbPath);
+                SmartTradeServices servicio = new SmartTradeServices(servicioBD);
+                return servicio;
             });
 
 

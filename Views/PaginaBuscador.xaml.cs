@@ -9,7 +9,7 @@ public partial class PaginaBuscador : ContentPage
 	{
 
 		InitializeComponent();
-		var viewModel = new PaginaBuscadorViewModel(new SmartTradeServices(new ServicioBD(new Conexion().GetConexion())), Navigation, textoBusqueda); ;
+		var viewModel = new PaginaBuscadorViewModel(new SmartTradeServices(new ServicioBD(InicializacionServicioBD.GetDatabasePath())), Navigation, textoBusqueda); ;
 		BindingContext = viewModel;
 		scrollView.HeightRequest = ScrollViewHeigth();
 	}
