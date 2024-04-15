@@ -3,9 +3,8 @@ using CommunityToolkit.Mvvm.Input;
 using SmartTrade.Models;
 using SmartTrade.Views;
 using SmartTrade.Services;
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
 //using UIKit;
 
 namespace SmartTrade.ViewModels
