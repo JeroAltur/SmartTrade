@@ -77,9 +77,11 @@ namespace SmartTrade.Services
                 resultadoProvicional.Add(p);
             }
 
-            result = result.OrderBy(p => p.valor).Take(10).ToList();
-            
-            return result;
+            resultadoProvicional = resultadoProvicional.OrderByDescending(p => p.valor).ToList();
+
+            List<Producto> result = resultadoProvicional.Take(10).ToList();
+
+            return resultadoProvicional;
         }
 
         public List<Producto> Buscador(String valor)
