@@ -36,8 +36,8 @@ namespace SmartTrade.ViewModels
             _navigation = navigation;
 
             //Inicializamos las colecciones
-            Tendencias = new ObservableCollection<Producto>();
-            MejorValorados = new ObservableCollection<Producto>();
+            Tendencias = new ObservableCollection<Producto>(dataService.Tendencias());
+            MejorValorados = new ObservableCollection<Producto>(dataService.MejorValorado());
             CompradosPorIronMan = new ObservableCollection<Producto>();
 
             SearchCommand = new RelayCommand(ExecuteSearch);
@@ -49,7 +49,7 @@ namespace SmartTrade.ViewModels
             string searchTerm = SearchText;
             await _navigation.PushAsync(new PaginaBuscador(searchTerm));
         }
-
+/*
         [RelayCommand]
         public async Task ListarTendencias()
         {
@@ -71,6 +71,8 @@ namespace SmartTrade.ViewModels
             }
 
         }
+
+        */
         /*
                 [RelayCommand]
                 public async Task ListarCompradosPorIronMan()
