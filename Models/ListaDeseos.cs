@@ -1,32 +1,34 @@
 ﻿using SmartTrade.Services;
+using SQLite;
 
 namespace SmartTrade.Models
 {
     internal class ListaDeseos
     {
+        [PrimaryKey, AutoIncrement]
         public int idDeseos {  get; set; }
-        public List<int> id_prod { get; set; }
+        public List<Producto> prod { get; set; }
         public ListaDeseos()
         {
-            id_prod = new List<int>();
+            prod = new List<Producto>();
         }
 
-        public ListaDeseos(List<int> lista)
+        public ListaDeseos(List<Producto> lista)
         {
-            id_prod = lista;
+            prod = lista;
         }
 
         public void añadirProducto(int p, ServicioBD servicio)
         {
-            id_prod.Add(p);
-            servicio.Actualizar<ListaDeseos>(this, "idDeseos");
+            prod.Add(p);
+            servicio.Actualizar<ListaDeseos>(this);
 
         }
 
         public void eliminarProducto(int p, ServicioBD servicio)
         {
-            id_prod.Remove(p);
-            servicio.Actualizar<ListaDeseos>(this, "idDeseos");
+            prod.Remove(p);
+            servicio.Actualizar<ListaDeseos>(this);
         }
     }
 }
