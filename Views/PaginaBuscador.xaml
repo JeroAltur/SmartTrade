@@ -15,7 +15,7 @@
                        VerticalOptions="Start"
                         Margin="10"/>
         </StackLayout>
-        
+
 
         <ScrollView x:Name="scrollView"
                     Orientation="Vertical">
@@ -39,24 +39,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
-        <StackLayout x:Name="barraInferior"
-                     BackgroundColor="White">
-            <StackLayout x:Name="Principal">
-                <Image Source="Resources/Images/persona.png" Aspect="AspectFill"></Image>
-                <Button x:Name="btnPrincipal"></Button>
-            </StackLayout>
-            <StackLayout x:Name="Perfil">
-                <Image Source="Resources/Images/persona.png" Aspect="AspectFill"></Image>
-                <Button x:Name="btnPerfil"></Button>
-            </StackLayout>
-            <StackLayout x:Name="Notificaciones">
-                <Image Source="Resources/Images/persona.png" Aspect="AspectFill"></Image>
-                <Button x:Name="btnNotificaciones"></Button>
-            </StackLayout>
-            <StackLayout x:Name="Opciones">
-                <Image Source="Resources/Images/persona.png" Aspect="AspectFill"></Image>
-                <Button x:Name="btnOpciones"></Button>
-            </StackLayout>
-        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

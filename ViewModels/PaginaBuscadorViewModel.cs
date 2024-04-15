@@ -21,10 +21,6 @@ namespace SmartTrade.ViewModels
         public string textoBusqueda;
         public ObservableCollection<Producto> productosBuscados {  get; set; }
         public ICommand SearchCommand { get; set; }
-        public ICommand PresionBtnPrincipal { get; set; }
-        public ICommand PresionBtnPerfil { get; set; }
-        public ICommand PresionBtnNotificaciones { get; set; }
-        public ICommand PresionBtnOpciones { get; set; }
 
         public PaginaBuscadorViewModel(SmartTradeServices dataService, INavigation navigation, string textoBusqueda)
         {
@@ -33,10 +29,6 @@ namespace SmartTrade.ViewModels
             this.textoBusqueda = textoBusqueda;
             productosBuscados = new ObservableCollection<Producto>(dataService.Buscador(textoBusqueda));
             SearchCommand = new RelayCommand(ExecuteSearch);
-            PresionBtnPrincipal = new RelayCommand(ExecutePrincipal);
-            PresionBtnPerfil = new RelayCommand(ExecutePerfil);
-            PresionBtnNotificaciones = new RelayCommand(ExecuteNotificaciones);
-            PresionBtnOpciones = new RelayCommand(ExecuteOpciones);
         }
 
         public string SearchText
@@ -50,25 +42,7 @@ namespace SmartTrade.ViewModels
             string searchTerm = SearchText;
             await navigation.PushAsync(new PaginaBuscador(searchTerm));
         }
-        private async void ExecutePrincipal()
-        {
-            await navigation.PushAsync(new PaginaPrincipal());
-        }
-        private async void ExecutePerfil()
-        {
-            string searchTerm = SearchText;
-            await navigation.PushAsync(new PaginaPerfil());
-        }
-        private async void ExecuteNotificaciones()
-        {
-            string searchTerm = SearchText;
-            await navigation.PushAsync(new PaginaListaDeDeseos());
-        }
-        private async void ExecuteOpciones()
-        {
-            string searchTerm = SearchText;
-            await navigation.PushAsync(new AgregarProducto());
-        }
+       
 
     }
 }
