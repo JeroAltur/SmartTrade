@@ -59,27 +59,29 @@ namespace SmartTrade.Services
 
         public List<Producto> MejorValorado()
         {
-            List<Comida> comida = bd.TodoOrdenado<Comida, double>("valor").Take(10).ToList();
-            List<Electronica> electronica = bd.TodoOrdenado<Electronica, double>("valor").Take(10).ToList();
-            List<Ropa> ropa = bd.TodoOrdenado<Ropa, double>("valor").Take(10).ToList();
-            List<Producto> result = new List<Producto>();
+            List<Comida> comida = bd.Todo<Comida>().ToList();
+            List<Electronica> electronica = bd.Todo<Electronica>().ToList();
+            List<Ropa> ropa = bd.Todo<Ropa>().ToList();
+            List<Producto> resultadoProvicional = new List<Producto>();
 
             foreach (Comida p in comida)
             {
-                result.Add(p);
+                resultadoProvicional.Add(p);
             }
             foreach (Electronica p in electronica)
             {
-                result.Add(p);
+                resultadoProvicional.Add(p);
             }
             foreach (Ropa p in ropa)
             {
-                result.Add(p);
+                resultadoProvicional.Add(p);
             }
 
-            result = result.OrderBy(p => p.valor).Take(10).ToList();
-            
-            return result;
+            resultadoProvicional = resultadoProvicional.OrderByDescending(p => p.valor).ToList();
+
+            List<Producto> result = resultadoProvicional.Take(10).ToList();
+
+            return resultadoProvicional;
         }
 
         public List<Producto> Buscador(String valor)
