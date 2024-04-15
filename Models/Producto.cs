@@ -26,7 +26,7 @@ namespace SmartTrade.Models
             HuellaAmbiental = 0;
             Random rnd = new Random();
             valor = rnd.Next(0, 5);
-            ventas = 0;
+            ventas = rnd.Next(0, 9999);
         }
 
         public Producto(string nombre, string descripcion, double precio, string imagenes, double huellaAmbiental, string fichaTecnica) : this()
