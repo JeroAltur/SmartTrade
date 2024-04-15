@@ -18,14 +18,14 @@ namespace SmartTrade.Models
             prod = lista;
         }
 
-        public void añadirProducto(int p, ServicioBD servicio)
+        public void añadirProducto(Producto p, ServicioBD servicio)
         {
             prod.Add(p);
             servicio.Actualizar<ListaDeseos>(this);
 
         }
 
-        public void eliminarProducto(int p, ServicioBD servicio)
+        public void eliminarProducto(Producto p, ServicioBD servicio)
         {
             prod.Remove(p);
             servicio.Actualizar<ListaDeseos>(this);
