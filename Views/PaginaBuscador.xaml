@@ -24,7 +24,8 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame BorderColor="Black"
-                                   BackgroundColor="#70C5A6">
+                                   BackgroundColor="#70C5A6"
+                                   CornerRadius="0">
                                 <StackLayout Orientation="Horizontal">
                                     <Image></Image>
                                     <StackLayout>
