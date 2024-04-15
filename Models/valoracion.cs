@@ -1,11 +1,11 @@
 ﻿using SmartTrade.Services;
+using SQLite;
 
 namespace SmartTrade.Models
 {
     internal class Valoracion
     {
-        private static int contadorId = 1;
-
+        [PrimaryKey, AutoIncrement]
         public int idValoracion { get; private set; }
         public double valoraciones { get; set; }
         public double total { get; set; }
@@ -17,8 +17,6 @@ namespace SmartTrade.Models
             this.valor = 0;
             this.valoraciones = 0;
             this.total = 0;
-
-            idValoracion = contadorId++;
         }
 
         public Valoracion(Producto p) : this()
@@ -32,7 +30,7 @@ namespace SmartTrade.Models
             this.valoraciones++;
             this.total += v;
             this.valor = this.total / this.valoraciones;
-            servicio.Actualizar(this, "idValoracion");
+            servicio.Actualizar(this);
 
         }
 

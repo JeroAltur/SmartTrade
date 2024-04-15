@@ -61,6 +61,25 @@ namespace SmartTrade.Services
             Limpiar<Ropa>();
             Limpiar<Electronica>();
         }
+        public T BuscarPorID<T>(int id) where T : class, new()
+        {
+            return _conexion.Find<T>(id);
+        }
+        public void Actualizar<T>(T entity) where T : class
+        {
+            _conexion.Update(entity);
+            _conexion.Commit();
+        }
+
+        public void CrearTablas()
+        {
+            _conexion.CreateTable<Producto>();
+            _conexion.CreateTable<Valoracion>();
+
+            // Agrega un atributo ForeignKey en la propiedad ProductoId
+            _conexion.CreateTable<Valoracion>(CreateFlags.AllImplicit | CreateFlags.ForceForeignKey);
+
+            _conexion.Commit();
+        }
     }
 }
-

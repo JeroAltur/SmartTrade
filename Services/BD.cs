@@ -9,6 +9,7 @@
         public void Crear<T>() where T : class;
         public List<T> TodoOrdenado<T, U>(string orderByColumn) where T : new();
         public void BorrarTodo();
-
+        public T BuscarPorID<T>(int id) where T : class, new();
+        public void CrearTablas();
     }
 }
