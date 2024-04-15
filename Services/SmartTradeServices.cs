@@ -75,13 +75,15 @@ namespace SmartTrade.Services
             foreach (Ropa p in ropa)
             {
                 resultadoProvicional.Add(p);
+
             }
-
-            resultadoProvicional = resultadoProvicional.OrderByDescending(p => p.valor).ToList();
-
-            List<Producto> result = resultadoProvicional.Take(10).ToList();
-
             return resultadoProvicional;
+
+          //  resultadoProvicional = resultadoProvicional.OrderByDescending(p => p.valor).ToList();
+
+         //   List<Producto> result = resultadoProvicional.Take(10).ToList();
+
+          //  return resultadoProvicional;
         }
 
         public List<Producto> Buscador(String valor)
