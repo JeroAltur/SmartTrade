@@ -13,9 +13,9 @@ namespace SmartTrade.Services
 
         public List<Producto> Tendencias()
         {
-            List<Comida> comida = bd.TodoOrdenado<Comida, int>("ventas").Take(10).ToList();
-            List<Electronica> electronica = bd.TodoOrdenado<Electronica, int>("ventas").Take(10).ToList();
-            List<Ropa> ropa = bd.TodoOrdenado<Ropa, int>("ventas").Take(10).ToList();
+            List<Comida> comida = bd.TodoOrdenado<Comida, int>("ventas").Take(8).ToList();
+            List<Electronica> electronica = bd.TodoOrdenado<Electronica, int>("ventas").Take(8).ToList();
+            List<Ropa> ropa = bd.TodoOrdenado<Ropa, int>("ventas").Take(8).ToList();
             List<Producto> result = new List<Producto>();
 
             foreach (Comida p in comida)
@@ -31,7 +31,7 @@ namespace SmartTrade.Services
                 result.Add(p);
             }
 
-            result = result.OrderBy(p => p.ventas).Take(10).ToList();
+            result = result.OrderBy(p => p.ventas).Take(8).ToList();
 
             return result;
         }
@@ -80,7 +80,7 @@ namespace SmartTrade.Services
 
 
            resultadoProvicional = resultadoProvicional.OrderByDescending(p => p.valor).ToList();
-           List<Producto> result = resultadoProvicional.Take(10).ToList();
+           List<Producto> result = resultadoProvicional.Take(8).ToList();
            return resultadoProvicional;
         }
 
