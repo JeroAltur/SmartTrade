@@ -26,6 +26,9 @@ namespace SmartTrade.ViewModels
             set { SetProperty(ref _searchText, value); }
         }
 
+        public PaginaPrincipalViewModel() { 
+        }
+
 
         public PaginaPrincipalViewModel(SmartTradeServices dataService, INavigation navigation)
         {
