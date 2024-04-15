@@ -11,14 +11,13 @@ public partial class PaginaBuscador : ContentPage
 		InitializeComponent();
 		var viewModel = new PaginaBuscadorViewModel(new SmartTradeServices(new ServicioBD(InicializacionServicioBD.GetDatabasePath())), Navigation, textoBusqueda); ;
 		BindingContext = viewModel;
-		scrollView.HeightRequest = ScrollViewHeigth();
+		setElementsWidth();
 	}
-
-	public double ScrollViewHeigth()
+	public void setElementsWidth()
 	{
-		double screenHeight = DeviceDisplay.MainDisplayInfo.Height;
-		return DeviceDisplay.MainDisplayInfo.Height - searchBar.Height;
-
+		Principal.WidthRequest = barraInferior.Width / 4;
+        Perfil.WidthRequest = barraInferior.Width / 4;
+        Notificaciones.WidthRequest = barraInferior.Width / 4;
+        Opciones.WidthRequest = barraInferior.Width / 4;
     }
-
 }

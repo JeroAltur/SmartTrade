@@ -5,34 +5,58 @@
              x:Class="SmartTrade.Views.PaginaBuscador"
              Title="PaginaBuscador">
     <VerticalStackLayout>
-        <SearchBar x:Name="searchBar"
-           Placeholder="Buscar..."
-           Text="{Binding SearchText}"
-           SearchCommand="{Binding SearchCommand}"
-           SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
-           HorizontalOptions="FillAndExpand"
-           VerticalOptions="Start"
-           Margin="10" />
+        <StackLayout>
+            <SearchBar x:Name="searchBar"
+                       Placeholder="Buscar..."
+                       Text="{Binding SearchText}"
+                       SearchCommand="{Binding SearchCommand}"
+                       SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}"
+                       HorizontalOptions="FillAndExpand"
+                       VerticalOptions="Start"
+                        Margin="10"/>
+        </StackLayout>
+        
 
         <ScrollView x:Name="scrollView"
-                    Orientation="Vertical"
-                    Margin="10">
+                    Orientation="Vertical">
             <ListView ItemsSource="{Binding productosBuscados}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Image></Image>
-                                <StackLayout>
-                                    <Label Text="{Binding nombre}"></Label>
-                                    <Label Text="{Binding valor, StringFormat='Valoración: {0}'}"></Label>
-                                    <Label Text="{Binding precio, StringFormat='Precio: {0}€'}"></Label>
+                            <Frame BorderColor="Black"
+                                   BackgroundColor="#70C5A6">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image></Image>
+                                    <StackLayout>
+                                        <Label Text="{Binding nombre}"></Label>
+                                        <Label Text="{Binding valor, StringFormat='Valoración: {0}'}"></Label>
+                                        <Label Text="{Binding precio, StringFormat='Precio: {0}€'}"></Label>
+                                    </StackLayout>
                                 </StackLayout>
-                            </StackLayout>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollView>
+        <StackLayout x:Name="barraInferior"
+                     BackgroundColor="White">
+            <StackLayout x:Name="Principal">
+                <Image Source="Resources/Images/persona.png" Aspect="AspectFill"></Image>
+                <Button x:Name="btnPrincipal"></Button>
+            </StackLayout>
+            <StackLayout x:Name="Perfil">
+                <Image Source="Resources/Images/persona.png" Aspect="AspectFill"></Image>
+                <Button x:Name="btnPerfil"></Button>
+            </StackLayout>
+            <StackLayout x:Name="Notificaciones">
+                <Image Source="Resources/Images/persona.png" Aspect="AspectFill"></Image>
+                <Button x:Name="btnNotificaciones"></Button>
+            </StackLayout>
+            <StackLayout x:Name="Opciones">
+                <Image Source="Resources/Images/persona.png" Aspect="AspectFill"></Image>
+                <Button x:Name="btnOpciones"></Button>
+            </StackLayout>
+        </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
