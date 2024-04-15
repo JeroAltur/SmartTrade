@@ -14,7 +14,7 @@ namespace SmartTrade
 
         public Conexion()
         {
-            cadenaConexion = $"Server={server};Database={database};User Id={user};Password={password}";
+            cadenaConexion = $"Server={server};Port={port};Database={database};Uid={user};Pwd={password};";
         }
 
         public MySqlConnection GetConexion()
