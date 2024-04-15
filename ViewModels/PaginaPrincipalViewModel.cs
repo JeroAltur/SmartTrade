@@ -51,7 +51,7 @@ namespace SmartTrade.ViewModels
         }
 
         [RelayCommand]
-        public async Task ListarTerndencias()
+        public async Task ListarTendencias()
         {
             var productos = _dataService.Tendencias();
             foreach (var producto in productos)
