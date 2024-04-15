@@ -78,7 +78,7 @@ namespace SmartTrade.Services
             }
 
             result = result.OrderBy(p => p.valor).Take(10).ToList();
-
+            
             return result;
         }
 

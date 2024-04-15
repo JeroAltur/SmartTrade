@@ -11,7 +11,7 @@
         <toolkit:ItemTappedEventArgsConverter x:Key="ItemTappedEventsArgsConverter"/>
     </ContentPage.Resources>
 
-    <AbsoluteLayout>
+    <VerticalStackLayout>
         <!-- Barra de búsqueda fija en la parte superior -->
         <SearchBar Placeholder="Buscar..."
                    HorizontalOptions="FillAndExpand"
@@ -19,32 +19,29 @@
                    Margin="10" />
 
         <!--Hay que añadir la del icono del carrito -->
-        <CollectionView ItemsSource="{Binding Deseados}"
-                        AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All"
-                        Margin="10,60,10,10">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2"/>
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0" Margin="5">
 
-                        <Grid RowSpacing="6" ColumnSpacing="6">
-                            <!-- Foto del producto-->
-                            <Image Source="{Binding RutaImagen}" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" />
-                            
-                            <!-- Nombre del producto-->
-                            <Label Text="{Binding NombreProducto}" Grid.Column="0" Grid.Row="1" VerticalOptions="End" HorizontalOptions="Center"/>
+        <ScrollView>
+            <Grid x:Name="MainGrid"  RowSpacing="6" ColumnSpacing="6"  Margin="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
+                </Frame>
+                <Frame BackgroundColor ="#70C5A6" HeightRequest="150" Padding="0" Grid.Column="1">
+                </Frame>
 
-                        </Grid>
-                    </Frame>
-                </DataTemplate>
-                
-            </CollectionView.ItemTemplate>
+                <!-- Las filas se añadirán dinámicamente en el código -->
+            </Grid>
 
 
 
-        </CollectionView>
-    </AbsoluteLayout>
+        </ScrollView>
+
+
+
+
+
+    </VerticalStackLayout>
 
 </ContentPage>

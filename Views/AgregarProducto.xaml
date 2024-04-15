@@ -30,18 +30,18 @@
                 
 
                 <!-- Descripción del producto -->
-                <Label Text="Título del producto" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Label Text="Descripción del producto" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>
                 
                     <Entry Placeholder="Introduce una descripción del producto" Text="{Binding Descripcion}" />
                 
-
+            
                 <!--Ficha técnica y especificaciones -->
-                <Label Text="Ficha técnica y especificaciones" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>
-                <Button Text="Adjuntar archivos" Command="{Binding SeleccionarYSubirFichaCommand}" HorizontalOptions="StartAndExpand" BackgroundColor="Black" CornerRadius="20" MaximumWidthRequest="90" />
-
+            <!--  <Label Text="Ficha técnica y especificaciones" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/> -->
+            <!-- <Button Text="Adjuntar archivos" Command="{Binding SeleccionarYSubirFichaCommand}" HorizontalOptions="StartAndExpand" BackgroundColor="Black" CornerRadius="20" MaximumWidthRequest="90" /> -->
+         
                 <!--Certificados ambientales y de calidad -->
                 <Label Text="Certificados ambientales y de calidad" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>
-                <Button Text="Adjuntar archivos" Command="{Binding SeleccionarYSubirCertificadosCommand}" HorizontalOptions="StartAndExpand" BackgroundColor="Black" CornerRadius="20" MaximumWidthRequest="90" />
+                <Button Text="Adjuntar archivos" Command="{Binding SeleccionarYSubirHuellaAmbientalCommand}" HorizontalOptions="StartAndExpand" BackgroundColor="Black" CornerRadius="20" MaximumWidthRequest="90" />
 
                 <!--Imágenes y vídeos del producto -->
                 <Label Text="Imágenes y vídeos del product" FontSize="20" FontAttributes="Bold" HorizontalOptions="Start"/>

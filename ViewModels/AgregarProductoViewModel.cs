@@ -16,8 +16,8 @@ namespace SmartTrade.ViewModels
         private Double _precio;
         private String _ficha;
         private String _tipo;
-        private List<String> _certificado;
-        private List<String> _imagen;
+        private Double _huellaAmbiental;
+        private String _imagen;
 
         public AgregarProductoViewModel(SmartTradeServices servicio)
         {
@@ -87,13 +87,13 @@ namespace SmartTrade.ViewModels
             }
         }
 
-        public List<String> Certificado
+        public Double HuellaAmbiental
         {
-            get { return _certificado; }
+            get { return _huellaAmbiental; }
             set
             {
-                _certificado = value;
-                OnPropertyChanged(nameof(Certificado));
+                _huellaAmbiental = value;
+                OnPropertyChanged(nameof(_huellaAmbiental));
 
             }
 
@@ -102,7 +102,7 @@ namespace SmartTrade.ViewModels
 
 
 
-        public List<String> Imagen
+        public String Imagen
         {
             get { return _imagen; }
             set
@@ -127,15 +127,16 @@ namespace SmartTrade.ViewModels
         public async Task CrearProducto()
         {
 
-            /*Producto producto = new Producto(Nombre, Descripcion, Precio, Imagen, Certificado, Ficha);
-            _dataService.AgregarProducto(Nombre, Descripcion, Precio, Imagen, Certificado, Ficha, Tipo);
-            LimpiarFormulario();*/
+            Producto producto = new Producto(Nombre, Descripcion, Precio, Imagen, HuellaAmbiental, Ficha);
+            _dataService.AgregarProducto(Nombre, Descripcion, Precio, Imagen, HuellaAmbiental, Ficha, Tipo);
+            LimpiarFormulario();
 
 
 
 
         }
 
+        // Eto no se usa 
         [RelayCommand]
         public async Task SeleccionarYSubirFicha()
         {
@@ -157,8 +158,9 @@ namespace SmartTrade.ViewModels
             }
         }
 
+
         [RelayCommand]
-        public async Task SeleccionarYSubirCertificados()
+        public async Task SeleccionarYSubirHuellaAmbiental()
         {
             var resultados = await FilePicker.PickMultipleAsync(new PickOptions
             {
@@ -167,16 +169,16 @@ namespace SmartTrade.ViewModels
                 FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
                 {
                     { DevicePlatform.iOS, new[] { "public.item" } },
-                    { DevicePlatform.Android, new[] { "*/*" } },
+                    { DevicePlatform.Android, new[] { "/" } },
                 })
             });
 
-            Certificado = new List<string>();
+           /* HuellaAmbiental = new List<string>();
             foreach (var resultado in resultados)
             {
                 using var stream = await resultado.OpenReadAsync();
-                Certificado.Add(resultado.FileName); // Aquí puedes manejar el archivo como necesites
-            }
+                HuellaAmbiental.Add(resultado.FileName); // Aquí puedes manejar el archivo como necesites
+            }*/
         }
 
         [RelayCommand]
@@ -192,11 +194,11 @@ namespace SmartTrade.ViewModels
                 })
             });
 
-            if (resultado != null)
+          /*  if (resultado != null)
             {
                 using var stream = await resultado.OpenReadAsync();
                 Imagen = new List<string> { resultado.FileName }; // Aquí puedes manejar el archivo como necesites
-            }
+            }*/
         }
 
 
@@ -210,7 +212,7 @@ namespace SmartTrade.ViewModels
             Precio = 0.0;
             Ficha = string.Empty;
             Tipo = string.Empty;
-            Certificado = null;
+            HuellaAmbiental = 0;
             Imagen = null;
 
         }
