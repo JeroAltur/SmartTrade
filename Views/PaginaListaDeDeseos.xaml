@@ -75,7 +75,7 @@
                             <RowDefinition Height="150"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <ImageButton Source="../Resources/Imgages/tecladoconpadnumerico.png" Aspect="AspectFill"/>
                         <Label Text="Teclado" Grid.Row="1" HorizontalOptions="Center"/>
                     </Grid>
                 </Frame>
@@ -85,7 +85,7 @@
                             <RowDefinition Height="150"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <ImageButton Source="../Resources/Imgages/sudaderasupreme.png" Aspect="AspectFill"/>
                         <Label Text="Sudadera Supreme" Grid.Row="1" HorizontalOptions="Center"/>
                     </Grid>
                 </Frame>
@@ -96,7 +96,7 @@
                             <RowDefinition Height="150"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <ImageButton Source="../Resources/Imgages/disfrazdino.png" Aspect="AspectFill"/>
                         <Label Text="Disfaz Dinosaurio" Grid.Row="1" HorizontalOptions="Center"/>
                     </Grid>
                 </Frame>
@@ -106,7 +106,7 @@
                             <RowDefinition Height="150"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <ImageButton Source="../Resources/Imgages/gafasol.png" Aspect="AspectFill"/>
                         <Label Text="gafas de sol" Grid.Row="1" HorizontalOptions="Center"/>
                     </Grid>
                 </Frame>
@@ -117,7 +117,7 @@
                             <RowDefinition Height="150"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <ImageButton Source="../Resources/Imgages/axe.png" Aspect="AspectFill"/>
                         <Label Text="Axe" Grid.Row="1" HorizontalOptions="Center"/>
                     </Grid>
                 </Frame>

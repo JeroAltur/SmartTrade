@@ -56,10 +56,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\axe.png" />
+	  <None Remove="Resources\Images\disfrazdino.png" />
+	  <None Remove="Resources\Images\gafassol.png" />
 	  <None Remove="Resources\Images\iphone.png" />
 	  <None Remove="Resources\Images\manzanaroja.png" />
 	  <None Remove="Resources\Images\redmi13.png" />
 	  <None Remove="Resources\Images\sudaderasupreme.png" />
+	  <None Remove="Resources\Images\teclado.png" />
 	  <None Remove="Resources\Images\tecladoconpadnumerico.png" />
 	</ItemGroup>
 
