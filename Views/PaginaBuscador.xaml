@@ -4,7 +4,10 @@
              xmlns:viewModels="clr-namespace:SmartTrade.ViewModels"
              x:Class="SmartTrade.Views.PaginaBuscador"
              Title="PaginaBuscador">
-    <VerticalStackLayout>
+
+    <ScrollView>
+
+        <VerticalStackLayout>
         <StackLayout>
             <SearchBar x:Name="searchBar"
                        Placeholder="Buscar..."
@@ -17,7 +20,7 @@
         </StackLayout>
 
 
-        <ScrollView>
+        
             <StackLayout>
                 <CollectionView ItemsSource="{Binding productosBuscados}" VerticalOptions="FillAndExpand">
                     <CollectionView.ItemsLayout>
@@ -43,6 +46,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </StackLayout>
-        </ScrollView>
+        
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
