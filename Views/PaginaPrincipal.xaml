@@ -40,7 +40,7 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding imagenes[0]}" Aspect="AspectFill"/>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFill"/>
                                     <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center"/>
                                 </Grid>
                             </DataTemplate>
@@ -58,7 +58,7 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding imagenes[0]}" Aspect="AspectFill"/>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFill"/>
                                     <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center"/>
                                 </Grid>
                             </DataTemplate>
@@ -76,7 +76,7 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding imagenes[0]}" Aspect="AspectFill"/>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFill"/>
                                     <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center"/>
                                 </Grid>
                             </DataTemplate>
