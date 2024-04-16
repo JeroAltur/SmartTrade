@@ -190,7 +190,7 @@ namespace SmartTrade.Services
             AgregarProductoDirecto(p2, "electronica");
 
 
-            Producto p3 = new Producto("Manzana roja", "Manzana roja cultivada en España", 20, "../Resources/Imgages/manzanaroja.png", 0, null);
+            Producto p3 = new Producto("Manzana roja", "manzana roja cultivada en España", 20, "../Resources/Imgages/manzanaroja.png", 0, null);
             AgregarProductoDirecto(p3, "comida");
 
 
@@ -198,7 +198,7 @@ namespace SmartTrade.Services
             AgregarProductoDirecto(p4, "ropa");
 
 
-            Producto p5 = new Producto("Redmi15Pro", "Redmi15 con mejoras en el rendimiento y almacenamiento", 20, "../Resources/Imgages/redmi15.png", 0, null);
+            Producto p5 = new Producto("Redmi15Pro", "xiaomi Redmi15 con mejoras en el rendimiento y almacenamiento", 20, "../Resources/Imgages/redmi15.png", 0, null);
             AgregarProductoDirecto(p5, "electronica");
 
 
@@ -226,7 +226,7 @@ namespace SmartTrade.Services
             AgregarProductoDirecto(p11, "electronica");
 
 
-            Producto p12 = new Producto("Iphone15", "Movil Iphone con cargador incluido", 999.99, "../Resources/Imgages/iphone.png", 0, null);
+            Producto p12 = new Producto("Iphone15", "Movil iphone con cargador incluido", 999.99, "../Resources/Imgages/iphone.png", 0, null);
             AgregarProductoDirecto(p12, "electronica");
 
             Producto p13 = new Producto("Gafas de Sol", "Gafas para protejerse les sol", 999.99, "../Resources/Imgages/gafassol.png", 0, null);
