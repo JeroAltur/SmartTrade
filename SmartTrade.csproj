@@ -61,7 +61,12 @@
 	  <None Remove="Resources\Images\gafassol.png" />
 	  <None Remove="Resources\Images\iphone.png" />
 	  <None Remove="Resources\Images\manzanaroja.png" />
+	  <None Remove="Resources\Images\redmi11.jpg" />
+	  <None Remove="Resources\Images\redmi12.jpg" />
 	  <None Remove="Resources\Images\redmi13.png" />
+	  <None Remove="Resources\Images\redmi14.jpg" />
+	  <None Remove="Resources\Images\redmi15.jpg" />
+	  <None Remove="Resources\Images\redmia3.jpg" />
 	  <None Remove="Resources\Images\sudaderasupreme.png" />
 	  <None Remove="Resources\Images\teclado.png" />
 	  <None Remove="Resources\Images\tecladoconpadnumerico.png" />

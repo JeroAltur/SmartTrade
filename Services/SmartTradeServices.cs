@@ -181,7 +181,7 @@ namespace SmartTrade.Services
             //p1.ValoracionNueva(5, bd); p1.ValoracionNueva(4, bd);
 
 
-            Producto p2 = new Producto("Redmi15", "movil xiaomi de ultima generacion ", 300, "../Resources/Imgages/redmi13.png", 0, null);
+            Producto p2 = new Producto("Redmi15", "movil xiaomi de ultima generacion ", 300, "../Resources/Imgages/redmi15.png", 0, null);
             AgregarProductoDirecto(p2, "electronica");
             //p2.ValoracionNueva(5, bd); p2.ValoracionNueva(4, bd);
 
@@ -196,12 +196,12 @@ namespace SmartTrade.Services
             //p4.ValoracionNueva(3, bd); p4.ValoracionNueva(4, bd);
 
 
-            Producto p5 = new Producto("Redmi15Pro", "Redmi15 con mejoras en el rendimiento y almacenamiento", 20, "../Resources/Imgages/redmi13.png", 0, null);
+            Producto p5 = new Producto("Redmi15Pro", "Redmi15 con mejoras en el rendimiento y almacenamiento", 20, "../Resources/Imgages/redmi15.png", 0, null);
             AgregarProductoDirecto(p5, "electronica");
             //p5.ValoracionNueva(5, bd); p5.ValoracionNueva(5, bd);
 
 
-            Producto p6 = new Producto("Redmi14", "movil xiaomi de alta calidad", 275, "../Resources/Imgages/redmi13.png", 0, null);
+            Producto p6 = new Producto("Redmi14", "movil xiaomi de alta calidad", 275, "../Resources/Imgages/redmi14.png", 0, null);
             AgregarProductoDirecto(p6, "electronica");
             //p6.ValoracionNueva(4, bd); p6.ValoracionNueva(4, bd);
 
@@ -211,22 +211,22 @@ namespace SmartTrade.Services
             //p7.ValoracionNueva(4, bd); p7.ValoracionNueva(4, bd);
 
 
-            Producto p8 = new Producto("Redmi12", "movil xiaomi de alta calidad", 225, "../Resources/Imgages/redmi13.png", 0, null);
+            Producto p8 = new Producto("Redmi12", "movil xiaomi de alta calidad", 225, "../Resources/Imgages/redmi12.png", 0, null);
             AgregarProductoDirecto(p8, "electronica");
             //p8.ValoracionNueva(4, bd); p8.ValoracionNueva(4, bd);
 
 
-            Producto p9 = new Producto("Redmi11", "movil xiaomi de alta calidad", 200, "../Resources/Imgages/redmi13.png", 0, null);
+            Producto p9 = new Producto("Redmi11", "movil xiaomi de alta calidad", 200, "../Resources/Imgages/redmi11.png", 0, null);
             AgregarProductoDirecto(p9, "electronica");
             //p9.ValoracionNueva(4, bd); p9.ValoracionNueva(3, bd);
 
 
-            Producto p10 = new Producto("Redmi10", "movil xiaomi de alta calidad", 150, "../Resources/Imgages/redmi13.png", 0, null);
+            Producto p10 = new Producto("Redmi10", "movil xiaomi de alta calidad", 150, "../Resources/Imgages/redmi11.png", 0, null);
             AgregarProductoDirecto(p10, "electronica");
             //p10.ValoracionNueva(3, bd); p10.ValoracionNueva(3, bd);
 
 
-            Producto p11 = new Producto("Redmi9", "movil xiaomi de alta calidad", 100, "../Resources/Imgages/redmi13.png", 0, null);
+            Producto p11 = new Producto("Redmia3", "movil xiaomi de alta calidad", 100, "../Resources/Imgages/redmia3.png", 0, null);
             AgregarProductoDirecto(p11, "electronica");
             //p11.ValoracionNueva(3, bd); p11.ValoracionNueva(2, bd);
 
