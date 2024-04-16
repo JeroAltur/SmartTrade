@@ -57,7 +57,9 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\axe.png" />
+	  <None Remove="Resources\Images\comida.png" />
 	  <None Remove="Resources\Images\disfrazdino.png" />
+	  <None Remove="Resources\Images\electronica.png" />
 	  <None Remove="Resources\Images\gafassol.png" />
 	  <None Remove="Resources\Images\iphone.png" />
 	  <None Remove="Resources\Images\manzanaroja.png" />
@@ -67,6 +69,7 @@
 	  <None Remove="Resources\Images\redmi14.jpg" />
 	  <None Remove="Resources\Images\redmi15.jpg" />
 	  <None Remove="Resources\Images\redmia3.jpg" />
+	  <None Remove="Resources\Images\ropa.png" />
 	  <None Remove="Resources\Images\sudaderasupreme.png" />
 	  <None Remove="Resources\Images\teclado.png" />
 	  <None Remove="Resources\Images\tecladoconpadnumerico.png" />

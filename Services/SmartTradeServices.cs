@@ -122,6 +122,12 @@ namespace SmartTrade.Services
 
         public void AgregarProducto(string name, string description, double price, string imagenes, double huella, string ficha, string tipo)
         {
+            if (imagenes == null)
+            {
+                if (tipo == "electronica") { imagenes = "../Resources/Imgages/electronica.png"; }
+                if (tipo == "comida") { imagenes = "../Resources/Imgages/comida.png"; }
+                if (tipo == "ropa") { imagenes = "../Resources/Imgages/ropa.png"; }
+            }
             Producto p = new Producto(name, description, price, imagenes, huella, ficha);
             FabricaProducto fabricaProducto = new FabricaProducto(bd);
             fabricaProducto.crearProducto(tipo, p);
