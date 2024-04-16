@@ -148,7 +148,7 @@ namespace SmartTrade.Services
         {
             bd.BorrarTodo();
 
-            Producto p1 = new Producto("teclado", "teclado con pad numerico", 20, "../Resources/Imgages/tecladoconpadnumerico.png", 0, null);
+            Producto p1 = new Producto("teclado", "teclado con pad numerico", 20, "../Resources/Imgages/teclado.png", 0, null);
             AgregarProductoDirecto(p1, "electronica");
             //p1.ValoracionNueva(5, bd); p1.ValoracionNueva(4, bd);
 
