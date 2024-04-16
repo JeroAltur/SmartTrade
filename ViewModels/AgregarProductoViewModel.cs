@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using Microsoft.Maui.Storage;
+using CommunityToolkit.Mvvm.Input;
 using SmartTrade.Models;
 using SmartTrade.Services;
 using System.ComponentModel;
@@ -160,18 +161,36 @@ namespace SmartTrade.ViewModels
 
 
         [RelayCommand]
-        public async Task SeleccionarYSubirHuellaAmbiental()
+        public async Task<FileResult> SeleccionarYSubirHuellaAmbiental(PickOptions options)
         {
-            var resultados = await FilePicker.PickMultipleAsync(new PickOptions
+            try
             {
-                PickerTitle = "Selecciona los certificados",
-                // Ajusta los tipos de archivos según tus necesidades
-                FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+                var result = await FilePicker.PickAsync(options);
+                if(result != null)
                 {
-                    { DevicePlatform.iOS, new[] { "public.item" } },
-                    { DevicePlatform.Android, new[] { "/" } },
-                })
-            });
+                    if(result.FileName.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase) || result.FileName.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                    {
+                        using var stream = await result.OpenReadAsync();
+                        var image = ImageSource.FromStream(() => stream);
+                    }
+                }
+                return result;
+            } catch (Exception ex)
+            {
+
+            }
+
+            return null;
+            //var resultados = await FilePicker.PickMultipleAsync(new PickOptions
+            //{
+            //    PickerTitle = "Selecciona los certificados",
+            //    // Ajusta los tipos de archivos según tus necesidades
+            //    FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+            //    {
+            //        { DevicePlatform.iOS, new[] { "public.item" } },
+            //        { DevicePlatform.Android, new[] { "/" } },
+            //    })
+            //});
 
            /* HuellaAmbiental = new List<string>();
             foreach (var resultado in resultados)
@@ -182,23 +201,44 @@ namespace SmartTrade.ViewModels
         }
 
         [RelayCommand]
-        public async Task SeleccionarYSubirImagen()
+        public async Task<FileResult> SeleccionarYSubirImagen(PickOptions options)
         {
-            var resultado = await FilePicker.PickAsync(new PickOptions
+            try
             {
-                PickerTitle = "Selecciona una imagen",
-                FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+                var result = await FilePicker.Default.PickAsync(options);
+                if (result != null)
                 {
-                    { DevicePlatform.iOS, new[] { "public.image" } },
-                    { DevicePlatform.Android, new[] { "image/*" } },
-                })
-            });
+                    if (result.FileName.EndsWith("jpg", StringComparison.OrdinalIgnoreCase) ||
+                        result.FileName.EndsWith("png", StringComparison.OrdinalIgnoreCase))
+                    {
+                        using var stream = await result.OpenReadAsync();
+                        var image = ImageSource.FromStream(() => stream);
+                    }
+                }
 
-          /*  if (resultado != null)
+                return result;
+            }
+            catch (Exception ex)
             {
-                using var stream = await resultado.OpenReadAsync();
-                Imagen = new List<string> { resultado.FileName }; // Aquí puedes manejar el archivo como necesites
-            }*/
+                // The user canceled or something went wrong
+            }
+
+            return null;
+            //var resultado = await FilePicker.PickAsync(new PickOptions
+            //{
+            //    PickerTitle = "Selecciona una imagen",
+            //    FileTypes = new FilePickerFileType(new Dictionary<DevicePlatform, IEnumerable<string>>
+            //    {
+            //        { DevicePlatform.iOS, new[] { "public.image" } },
+            //        { DevicePlatform.Android, new[] { "image/*" } },
+            //    })
+            //});
+
+            /*  if (resultado != null)
+              {
+                  using var stream = await resultado.OpenReadAsync();
+                  Imagen = new List<string> { resultado.FileName }; // Aquí puedes manejar el archivo como necesites
+              }*/
         }
 
 
@@ -220,6 +260,7 @@ namespace SmartTrade.ViewModels
         private async Task MostrarMensajeConfirmacion(Producto producto)
 
         {
+            _dataService.AgregarProducto(_nombre, _descripcion, _precio,_imagen, _huellaAmbiental,_ficha);
             MessagingCenter.Send(this, "ProductoCreado", producto);
         }
 
