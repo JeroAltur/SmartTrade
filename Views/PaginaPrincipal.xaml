@@ -37,11 +37,11 @@
                             <DataTemplate>
                                 <Grid Padding="10">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding imagenes}" Aspect="AspectFill"/>
-                                    <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center"/>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFit"/>
+                                    <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -55,11 +55,11 @@
                             <DataTemplate>
                                 <Grid Padding="10">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding imagenes}" Aspect="AspectFill"/>
-                                    <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center"/>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFit"/>
+                                    <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

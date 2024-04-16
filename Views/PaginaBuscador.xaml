@@ -25,7 +25,8 @@
                         <ViewCell>
                             <Frame BorderColor="Black"
                                    BackgroundColor="#70C5A6"
-                                   CornerRadius="0">
+                                   CornerRadius="0"
+                                   Margin="12">
                                 <StackLayout Orientation="Horizontal">
                                     <Image></Image>
                                     <StackLayout>
