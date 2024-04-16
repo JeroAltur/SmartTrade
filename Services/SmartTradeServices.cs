@@ -144,6 +144,34 @@ namespace SmartTrade.Services
             ld.eliminarProducto(p, bd);
         }
 
+        public List<Producto> CompradosPorIronman(String valor)
+        {
+            List<Producto> resultadoProvicional = new List<Producto>();
+            List<Producto> result = new List<Producto>();
+            resultadoProvicional = Buscador("Iphone15");
+            foreach (Producto p in resultadoProvicional)
+            {
+                result.Add(p);
+            }
+            resultadoProvicional = Buscador("Sudadera supreme");
+            foreach (Producto p in resultadoProvicional)
+            {
+                result.Add(p);
+            }
+            resultadoProvicional = Buscador("teclado");
+            foreach (Producto p in resultadoProvicional)
+            {
+                result.Add(p);
+            }
+            resultadoProvicional = Buscador("Manzana");
+            foreach (Producto p in resultadoProvicional)
+            {
+                result.Add(p);
+            }
+
+            return result;
+        }
+
         public void IniciarBD()
         {
             bd.BorrarTodo();
