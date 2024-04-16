@@ -232,7 +232,7 @@ namespace SmartTrade.Services
             Producto p13 = new Producto("Gafas de Sol", "Gafas para protejerse les sol", 999.99, "../Resources/Imgages/gafassol.png", 0, null);
             AgregarProductoDirecto(p13, "ropa");
 
-            Producto p14 = new Producto("Disfraz Dinosaurio", "Disfraz de dinosaurio guay", 999.99, "../Resources/Imgages/difrazdino.png", 0, null);
+            Producto p14 = new Producto("Disfraz Dinosaurio", "Disfraz de dinosaurio guay", 999.99, "../Resources/Imgages/disfrazdino.png", 0, null);
             AgregarProductoDirecto(p14, "ropa");
 
             Producto p15 = new Producto("AXE", "Desodorante", 999.99, "../Resources/Imgages/axe.png", 0, null);
