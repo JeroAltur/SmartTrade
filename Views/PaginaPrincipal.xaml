@@ -65,28 +65,24 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </Frame>
-                
+
                 <Label Text="Comprados por IronMan" FontSize="24" FontAttributes="Bold" HorizontalOptions="Start"/>
                 <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="0">
-                    <CollectionView ItemsSource="{Binding CompradosPorIronMan}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  FlowDirection="LeftToRight">
+                    <CollectionView ItemsSource="{Binding CompradosPorIronMan}" ItemsLayout="HorizontalList"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FlowDirection="LeftToRight">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid Padding="10">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
                                         <RowDefinition Height="Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Image Source="{Binding imagenes}" Aspect="AspectFill"/>
-                                    <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center"/>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFit"/>
+                                    <Label Text="{Binding nombre}" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End"/>
                                 </Grid>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-
                 </Frame>
-
-
-
 
             </VerticalStackLayout>
         </ScrollView>
