@@ -203,7 +203,7 @@ namespace SmartTrade.Services
             //p11.ValoracionNueva(3, bd); p11.ValoracionNueva(2, bd);
 
 
-            Producto p12 = new Producto("Iphone15", "Movil Iphone con cargador incluido", 999.99, "../Resources/Imgages/redmi13.png", 0, null);
+            Producto p12 = new Producto("Iphone15", "Movil Iphone con cargador incluido", 999.99, "../Resources/Imgages/iphone.png", 0, null);
             AgregarProductoDirecto(p12, "electronica");
             //p12.ValoracionNueva(5, bd); p12.ValoracionNueva(4, bd);
 
