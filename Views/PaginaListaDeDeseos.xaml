@@ -11,6 +11,7 @@
         <toolkit:ItemTappedEventArgsConverter x:Key="ItemTappedEventsArgsConverter"/>
     </ContentPage.Resources>
 
+    <ScrollView>
     <VerticalStackLayout>
         <!-- Barra de búsqueda fija en la parte superior -->
         <SearchBar Placeholder="Buscar..."
@@ -20,12 +21,20 @@
 
         <!--Hay que añadir la del icono del carrito -->
 
-        <ScrollView>
-            <Grid x:Name="MainGrid"  RowSpacing="6" ColumnSpacing="6"  Margin="20,0">
+        
+            
+                <Grid x:Name="MainGrid"  RowSpacing="6" ColumnSpacing="6"  Margin="20,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
                 <Frame BackgroundColor="#70C5A6" HeightRequest="170" Padding="0">
                     <Grid Padding="0">
                         <Grid.RowDefinitions>
@@ -42,14 +51,85 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="150"/>
                             <RowDefinition Height="Auto"/>
+                           
                         </Grid.RowDefinitions>
                         <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
                         <Label Text="Redmi13" Grid.Row="1" HorizontalOptions="Center"/>
                     </Grid>
                 </Frame>
 
+                <Frame BackgroundColor ="#70C5A6" HeightRequest="170" Padding="0" Grid.Row="1" Grid.Column="0" >
+                    <Grid Padding="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <Label Text="Redmi14" Grid.Row="1" HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <Frame BackgroundColor ="#70C5A6" HeightRequest="170" Padding="0" Grid.Row="1" Grid.Column="1" >
+                    <Grid Padding="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <Label Text="Teclado" Grid.Row="1" HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor ="#70C5A6" HeightRequest="170" Padding="0" Grid.Row="2" Grid.Column="0" >
+                    <Grid Padding="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <Label Text="Sudadera Supreme" Grid.Row="1" HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <Frame BackgroundColor ="#70C5A6" HeightRequest="170" Padding="0" Grid.Row="2" Grid.Column="1" >
+                    <Grid Padding="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <Label Text="Disfaz Dinosaurio" Grid.Row="1" HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
+                <Frame BackgroundColor ="#70C5A6" HeightRequest="170" Padding="0" Grid.Row="3" Grid.Column="0" >
+                    <Grid Padding="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <Label Text="gafas de sol" Grid.Row="1" HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+                <Frame BackgroundColor ="#70C5A6" HeightRequest="170" Padding="0" Grid.Row="3" Grid.Column="1" >
+                    <Grid Padding="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ImageButton Source="../Resources/Imgages/redmi13.png" Aspect="AspectFill"/>
+                        <Label Text="Axe" Grid.Row="1" HorizontalOptions="Center"/>
+                    </Grid>
+                </Frame>
+
+
+
+
+
                 <!-- Las filas se añadirán dinámicamente en el código -->
             </Grid>
-        </ScrollView>
+            
+       
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
