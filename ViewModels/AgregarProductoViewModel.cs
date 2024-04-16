@@ -13,12 +13,12 @@ namespace SmartTrade.ViewModels
         private readonly SmartTradeServices _dataService;
 
         private String _nombre;
-        private String _descripcion;
+        private String _descripcion ;
         private Double _precio;
-        private String _ficha;
+        private String _ficha = null;
         private String _tipo;
-        private Double _huellaAmbiental;
-        private String _imagen;
+        private Double _huellaAmbiental = 0.0;
+        private String _imagen = null;
 
         public AgregarProductoViewModel(SmartTradeServices servicio)
         {
@@ -127,9 +127,7 @@ namespace SmartTrade.ViewModels
         [RelayCommand]
         public async Task CrearProducto()
         {
-
-            Producto producto = new Producto(Nombre, Descripcion, Precio, Imagen, HuellaAmbiental, Ficha);
-            _dataService.AgregarProducto(Nombre, Descripcion, Precio, Imagen, HuellaAmbiental, Ficha, Tipo);
+            _dataService.AgregarProducto(_nombre, _descripcion, _precio, _imagen, _huellaAmbiental, _ficha, _tipo);
             LimpiarFormulario();
 
 
@@ -155,7 +153,7 @@ namespace SmartTrade.ViewModels
             if (resultado != null)
             {
                 using var stream = await resultado.OpenReadAsync();
-                Ficha = resultado.FileName; // Aquí puedes manejar el archivo como necesites
+                _ficha = resultado.FileName; // Aquí puedes manejar el archivo como necesites
             }
         }
 
@@ -257,12 +255,7 @@ namespace SmartTrade.ViewModels
 
         }
 
-        private async Task MostrarMensajeConfirmacion(Producto producto)
-
-        {
-            _dataService.AgregarProducto(_nombre, _descripcion, _precio,_imagen, _huellaAmbiental,_ficha);
-            MessagingCenter.Send(this, "ProductoCreado", producto);
-        }
+      
 
 
 

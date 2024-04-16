@@ -50,7 +50,7 @@
 
                 <!--Seleccionar tipo de producto-->
 
-                    <Picker Title="Seleccione tipo de producto">
+                    <Picker Title="Seleccione tipo de producto" SelectedItem="{Binding _tipo}">
                     <Picker.Items>
                     <x:String>Comida</x:String>
                     <x:String>Electronica</x:String>
