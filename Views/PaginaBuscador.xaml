@@ -17,29 +17,32 @@
         </StackLayout>
 
 
-        <ScrollView x:Name="scrollView"
-                    Orientation="Vertical">
-            <ListView ItemsSource="{Binding productosBuscados}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame BorderColor="Black"
-                                   BackgroundColor="#70C5A6"
-                                   CornerRadius="0"
-                                   Margin="12">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image></Image>
-                                    <StackLayout>
-                                        <Label Text="{Binding nombre}"></Label>
-                                        <Label Text="{Binding valor, StringFormat='Valoración: {0}'}"></Label>
-                                        <Label Text="{Binding precio, StringFormat='Precio: {0}€'}"></Label>
+        <ScrollView>
+            <StackLayout>
+                <CollectionView ItemsSource="{Binding productosBuscados}" VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="#70C5A6" HeightRequest="150" Padding="10" Margin="5">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="{Binding imagenes}" Aspect="AspectFit"/>
+                                    <StackLayout Grid.Column="1" VerticalOptions="Center" Margin="10,0,0,0">
+                                        <Label Text="{Binding nombre}" FontSize="18" FontAttributes="Bold"/>
+                                        <Label Text="{Binding precio, StringFormat='Precio: {0:C2}'}"/>
+                                        <Label Text="{Binding valor, StringFormat='Valor: {0:F2}'}"/>
                                     </StackLayout>
-                                </StackLayout>
+                                </Grid>
                             </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
         </ScrollView>
     </VerticalStackLayout>
 </ContentPage>
