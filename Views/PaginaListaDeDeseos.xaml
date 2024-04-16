@@ -106,7 +106,7 @@
                             <RowDefinition Height="150"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <ImageButton Source="../Resources/Imgages/gafasol.png" Aspect="AspectFill"/>
+                        <ImageButton Source="../Resources/Imgages/gafassol.png" Aspect="AspectFill"/>
                         <Label Text="gafas de sol" Grid.Row="1" HorizontalOptions="Center"/>
                     </Grid>
                 </Frame>
