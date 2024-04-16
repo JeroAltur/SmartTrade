@@ -144,7 +144,7 @@ namespace SmartTrade.Services
             ld.eliminarProducto(p, bd);
         }
 
-        public List<Producto> CompradosPorIronman(String valor)
+        public List<Producto> CompradosPorIronman()
         {
             List<Producto> resultadoProvicional = new List<Producto>();
             List<Producto> result = new List<Producto>();

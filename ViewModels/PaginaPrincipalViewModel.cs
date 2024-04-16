@@ -38,7 +38,7 @@ namespace SmartTrade.ViewModels
             //Inicializamos las colecciones
             Tendencias = new ObservableCollection<Producto>(dataService.Tendencias());
             MejorValorados = new ObservableCollection<Producto>(dataService.MejorValorado());
-            CompradosPorIronMan = new ObservableCollection<Producto>();
+            CompradosPorIronMan = new ObservableCollection<Producto>(dataService.CompradosPorIronman());
 
             SearchCommand = new RelayCommand(ExecuteSearch);
 
