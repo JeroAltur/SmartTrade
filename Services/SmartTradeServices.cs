@@ -163,7 +163,7 @@ namespace SmartTrade.Services
             //p3.ValoracionNueva(5, bd); p3.ValoracionNueva(5, bd);
 
 
-            Producto p4 = new Producto("Sudadera supreme", "sudadera de alta calidad", 20, "../Resources/Imgages/persona.png", 0, null);
+            Producto p4 = new Producto("Sudadera supreme", "sudadera de alta calidad", 20, "../Resources/Imgages/sudaderasupreme.png", 0, null);
             AgregarProductoDirecto(p4, "ropa");
             //p4.ValoracionNueva(3, bd); p4.ValoracionNueva(4, bd);
 

@@ -58,6 +58,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\manzanaroja.png" />
 	  <None Remove="Resources\Images\redmi13.png" />
+	  <None Remove="Resources\Images\sudaderasupreme.png" />
 	  <None Remove="Resources\Images\tecladoconpadnumerico.png" />
 	</ItemGroup>
 
