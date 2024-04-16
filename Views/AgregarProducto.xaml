@@ -52,9 +52,9 @@
 
                     <Picker Title="Seleccione tipo de producto" SelectedItem="{Binding _tipo}">
                     <Picker.Items>
-                    <x:String>Comida</x:String>
-                    <x:String>Electronica</x:String>
-                    <x:String>Ropa</x:String>
+                    <x:String>comida</x:String>
+                    <x:String>electronica</x:String>
+                    <x:String>ropa</x:String>
                 </Picker.Items>
                 </Picker>
 
